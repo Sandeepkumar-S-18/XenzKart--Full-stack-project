@@ -1,0 +1,19 @@
+@font-face {
+    font-family: mySemiBold;
+    src: url(Fonts/Poppins-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: MyRegular;
+    src: url(Fonts/Poppins-Regular.ttf);
+}
+
+@font-face {
+    font-family: MyMedium;
+    src: url(Fonts/Poppins-Medium.ttf);
+}
+
+@font-face {
+    font-family: MyLight;
+    src: url(Fonts/Poppins-Light.ttf);
+}
