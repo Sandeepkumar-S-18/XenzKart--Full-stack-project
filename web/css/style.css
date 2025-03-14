@@ -1,8 +1,27 @@
-@import url(font.css);
+@font-face {
+    font-family: MySemiBold;
+    src: url(Fonts/Poppins-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: MyRegular;
+    src: url(Fonts/Poppins-Regular.ttf);
+}
+
+@font-face {
+    font-family: MyMedium;
+    src: url(Fonts/Poppins-Medium.ttf);
+}
+
+@font-face {
+    font-family: MyLight;
+    src: url(Fonts/Poppins-Light.ttf);
+}
 
 * {
     margin: 0;
     padding: 0;
+    font-family: MyRegular;
 }
 
 html, body {
@@ -20,5 +39,6 @@ button {
 }
 
 :root {
-    --yellow-color: #ff8500;
+    --yellow-color: #ffc107;
+    --orange-color: #fd7e14;
 }

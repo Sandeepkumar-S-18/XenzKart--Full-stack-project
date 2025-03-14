@@ -1,0 +1,119 @@
+@import url(style.css);
+
+/*WRAPPER BOX*/
+#wrapper {
+    width: 100%;
+    height: 100%;
+    
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: space-evenly;
+}
+
+/*====================================== LOGIN-BOX ======================================*/
+#wrapper #login-box {
+    width: 800px;
+    height: 500px;
+    background-color: rgba(243, 240, 240, 0.25);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 2px );
+    -webkit-backdrop-filter: blur( 2px );
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: space-evenly;
+}
+
+#wrapper #login-box #login-design {
+    width: 350px;
+    height: 500px;
+    background-color: var(--yellow-color);
+    border-radius: 10px 0px 0px 10px;
+    text-align: center;
+    color: #fff;
+}
+
+#wrapper #login-box #login-design div:nth-child(1) {
+    margin-top: 200px;
+    font-family: MySemiBold;
+    font-size: 30px;
+}
+
+#wrapper #login-box #login-design div:nth-child(2) {
+    margin: 180px 0px 10px 0px;
+    font-size: 14px;
+}
+
+#wrapper #login-box #login-design button {
+    padding: 5px 15px;
+    border: 1px solid #fff;
+    background-color: rgba(243, 240, 240, 0.25);
+    border-radius: 5px;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+#wrapper #login-box #login-design button:hover {
+    background-color: var(--orange-color);
+}
+
+#wrapper #login-box #login-form {
+    width: 350px;
+    height: 300px;
+    padding: 100px 50px;
+    color: var(--orange-color);
+    text-align: center;
+    cursor: default;
+}
+
+#wrapper #login-box #login-form #form-data {
+    margin-top: 40px;
+}
+
+#wrapper #login-box #login-form #form-data input {
+    width: 310px;
+    height: 20px;
+    outline: none;
+    font-size: 18px;
+    padding: 6px;
+    font-family: MyLight;
+}
+
+#wrapper #login-box #login-form #form-data input::placeholder {
+    font-size: 16px;
+}
+
+#wrapper #login-box #login-form #form-data input:focus::placeholder {
+    color: var(--yellow-color);
+}
+
+#wrapper #login-box #login-form #form-data input[type="submit"] {
+    width: 320px;
+    height: 40px;
+    font-family: MyRegular;
+    background-color: var(--yellow-color);
+    border: 0px;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#wrapper #login-box #login-form #form-data input[type="submit"]:hover {
+    background-color: var(--orange-color);
+}
+/*====================================== /LOGIN-BOX ======================================*/
+
+/*====================================== SIGNUP-BOX ======================================*/
+#signup-box {
+    display: none;
+}
+
+
+/*====================================== /SIGNUP-BOX ======================================*/
