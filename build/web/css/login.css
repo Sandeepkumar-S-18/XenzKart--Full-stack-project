@@ -33,19 +33,23 @@
     width: 350px;
     height: 500px;
     background-color: var(--purple-color);
-    border-radius: 10px 0px 0px 10px;
     text-align: center;
     color: #fff;
 }
 
-#wrapper #login-box #login-design div:nth-child(1) {
-    margin-top: 200px;
+#wrapper #login-box #login-design #welcome-heading {
+    margin-top: 180px;
     font-family: MySemiBold;
     font-size: 30px;
 }
 
-#wrapper #login-box #login-design div:nth-child(2) {
-    margin: 180px 0px 10px 0px;
+#wrapper #login-box #login-design #welcome-line {
+    font-size: 12px;
+    padding: 5px 15px;
+}
+
+#wrapper #login-box #login-design #signup-redirect {
+    margin: 120px 0px 10px 0px;
     font-size: 14px;
 }
 
@@ -115,24 +119,24 @@
 /*====================================== /LOGIN-BOX ======================================*/
 
 /*====================================== SIGNUP-BOX ======================================*/
-#wrapper #signup-box {
-    display: none;
-}
-
-#wrapper #signup-box #signup-form {
+#wrapper #login-box #signup-form {
     width: 350px;
-    height: 300px;
-    padding: 100px 50px;
-    color: var(--orange-color);
+    height: 460px;
+    padding: 20px 50px;
+    color: var(--purple-color);
     text-align: center;
     cursor: default;
 }
 
-#wrapper #login-box #signup-form #form2-data {
-    margin-top: 40px;
+#wrapper #login-box #signup-form #msg {
+    font-size: 10px;
 }
 
-#wrapper #login-box #signup-form #form2-data input {
+#wrapper #login-box #signup-form #form-data {
+    margin-top: 20px;
+}
+
+#wrapper #login-box #signup-form #form-data input {
     width: 310px;
     height: 20px;
     outline: none;
@@ -141,28 +145,37 @@
     font-family: MyLight;
 }
 
-#wrapper #login-box #signup-form #form2-data input::placeholder {
+#wrapper #login-box #signup-form #form-data #signup_address {
+    resize: none;
+    width: 310px;
+    outline: none;
+    font-size: 14px;
+    padding: 0px 6px;
+    font-family: MyLight;
+}
+
+#wrapper #login-box #signup-form #form-data input::placeholder,#signup_address::placeholder {
     font-size: 16px;
 }
 
-#wrapper #login-box #signup-form #form2-data input:focus::placeholder {
-    color: var(--yellow-color);
+#wrapper #login-box #signup-form #form-data input:focus::placeholder,#signup_address:focus::placeholder {
+    color: var(--purple-color);
 }
 
-#wrapper #login-box #signup-form #form2-data input[type="submit"] {
+#wrapper #login-box #signup-form #form-data input[type="submit"] {
     width: 320px;
     height: 40px;
     font-family: MyRegular;
-    background-color: var(--yellow-color);
+    background-color: var(--purple-color);
     border: 0px;
     color: #fff;
-    border-radius: 5px;
+    border-radius: var(--half-border-radius);
     font-size: 16px;
     cursor: pointer;
     transition: all 0.3s;
 }
 
-#wrapper #login-box #signup-form #form2-data input[type="submit"]:hover {
-    background-color: var(--orange-color);
+#wrapper #login-box #signup-form #form-data input[type="submit"]:hover {
+    background-color: var(--dark-purple-color);
 }
 /*====================================== /SIGNUP-BOX ======================================*/

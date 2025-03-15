@@ -18,21 +18,22 @@
             
             <!--LOGIN FORM-->
             <div id="login-box">
-                <div id="login-design">
-                    <div>Welcome Back!</div>
+                <div id="login-design" style="border-radius: 10px 0px 0px 10px;">
+                    <div id="welcome-heading">Welcome Back!</div>
+                    <p id="welcome-line">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus egestas nisi vitae ultricies porttitor. Sed varius ac nunc sit justo.</p>
                     <% 
                         String login = request.getParameter("login");
                         if(login.equalsIgnoreCase("user"))
                         {
                             %>
-                            <div>Don't have an account?</div>
+                            <div id="signup-redirect">Don't have an account?</div>
                             <a href="signup.html">Sign Up</a>
                             <%
                         }
                     %>
                 </div>
                 <div id="login-form">
-                    <h1><u>LogIn to XenzKart</u></h1>
+                    <h1>LogIn to XenzKart</h1>
                     <div id="form-data">
                         <form action="" method="POST" autocomplete="off" onsubmit="return loginValidation()">
                             <input id="login_email" type="email" name="user_email" value="" placeholder="Email" autofocus /> <br><br>
