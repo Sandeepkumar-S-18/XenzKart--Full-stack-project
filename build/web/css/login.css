@@ -13,14 +13,14 @@
 }
 
 /*====================================== LOGIN-BOX ======================================*/
-#wrapper #login-box {
+#wrapper #login-box,#signup-box {
     width: 800px;
     height: 500px;
     background-color: rgba(243, 240, 240, 0.25);
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     backdrop-filter: blur( 2px );
     -webkit-backdrop-filter: blur( 2px );
-    border-radius: 10px;
+    border-radius: var(--border-radius);
 
     display: flex;
     flex-direction: row;
@@ -32,7 +32,7 @@
 #wrapper #login-box #login-design {
     width: 350px;
     height: 500px;
-    background-color: var(--yellow-color);
+    background-color: var(--purple-color);
     border-radius: 10px 0px 0px 10px;
     text-align: center;
     color: #fff;
@@ -49,26 +49,30 @@
     font-size: 14px;
 }
 
-#wrapper #login-box #login-design button {
+#wrapper #login-box #login-design a {
     padding: 5px 15px;
     border: 1px solid #fff;
     background-color: rgba(243, 240, 240, 0.25);
-    border-radius: 5px;
+    border-radius: var(--half-border-radius);
     color: #fff;
     transition: all 0.3s;
 }
 
-#wrapper #login-box #login-design button:hover {
-    background-color: var(--orange-color);
+#wrapper #login-box #login-design a:hover {
+    background-color: var(--dark-purple-color);
 }
 
 #wrapper #login-box #login-form {
     width: 350px;
     height: 300px;
     padding: 100px 50px;
-    color: var(--orange-color);
+    color: var(--purple-color);
     text-align: center;
     cursor: default;
+}
+
+#wrapper #login-box #login-form #msg {
+    font-size: 10px;
 }
 
 #wrapper #login-box #login-form #form-data {
@@ -89,10 +93,63 @@
 }
 
 #wrapper #login-box #login-form #form-data input:focus::placeholder {
-    color: var(--yellow-color);
+    color: var(--purple-color);
 }
 
 #wrapper #login-box #login-form #form-data input[type="submit"] {
+    width: 320px;
+    height: 40px;
+    font-family: MyRegular;
+    background-color: var(--purple-color);
+    border: 0px;
+    color: #fff;
+    border-radius: var(--half-border-radius);
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#wrapper #login-box #login-form #form-data input[type="submit"]:hover {
+    background-color: var(--dark-purple-color);
+}
+/*====================================== /LOGIN-BOX ======================================*/
+
+/*====================================== SIGNUP-BOX ======================================*/
+#wrapper #signup-box {
+    display: none;
+}
+
+#wrapper #signup-box #signup-form {
+    width: 350px;
+    height: 300px;
+    padding: 100px 50px;
+    color: var(--orange-color);
+    text-align: center;
+    cursor: default;
+}
+
+#wrapper #login-box #signup-form #form2-data {
+    margin-top: 40px;
+}
+
+#wrapper #login-box #signup-form #form2-data input {
+    width: 310px;
+    height: 20px;
+    outline: none;
+    font-size: 18px;
+    padding: 6px;
+    font-family: MyLight;
+}
+
+#wrapper #login-box #signup-form #form2-data input::placeholder {
+    font-size: 16px;
+}
+
+#wrapper #login-box #signup-form #form2-data input:focus::placeholder {
+    color: var(--yellow-color);
+}
+
+#wrapper #login-box #signup-form #form2-data input[type="submit"] {
     width: 320px;
     height: 40px;
     font-family: MyRegular;
@@ -105,15 +162,7 @@
     transition: all 0.3s;
 }
 
-#wrapper #login-box #login-form #form-data input[type="submit"]:hover {
+#wrapper #login-box #signup-form #form2-data input[type="submit"]:hover {
     background-color: var(--orange-color);
 }
-/*====================================== /LOGIN-BOX ======================================*/
-
-/*====================================== SIGNUP-BOX ======================================*/
-#signup-box {
-    display: none;
-}
-
-
 /*====================================== /SIGNUP-BOX ======================================*/

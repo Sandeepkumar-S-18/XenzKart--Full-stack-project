@@ -39,6 +39,8 @@ button {
 }
 
 :root {
-    --yellow-color: #ffc107;
-    --orange-color: #fd7e14;
+    --purple-color: #706fd3;
+    --dark-purple-color: #474787;
+    --half-border-radius: 5px;
+    --border-radius: 10px;
 }
