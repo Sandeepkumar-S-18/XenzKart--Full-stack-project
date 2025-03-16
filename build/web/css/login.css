@@ -154,6 +154,37 @@
     font-family: MyLight;
 }
 
+#wrapper #login-box #signup-form #form-data #signup_photo {
+    display: none;
+}
+
+#wrapper #login-box #signup-form #form-data #custom-file-label {
+    display: inline-block;
+    background-color: var(--purple-color);
+    border-radius: var(--half-border-radius);
+    cursor: pointer;
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+    padding: 6px;
+    width: 310px;
+    border: none;
+    position: relative;
+    transition: all 0.3s;
+}
+
+#wrapper #login-box #signup-form #form-data #custom-file-label:hover {
+    background-color: var(--dark-purple-color);
+}
+
+#wrapper #login-box #signup-form #form-data #custom-file-label.selected {
+    background-color: var(--purple-color);
+    color: #fff;
+    text-align: center;
+    font-weight: normal;
+    font-size: 14px;
+}
+
 #wrapper #login-box #signup-form #form-data input::placeholder,#signup_address::placeholder {
     font-size: 16px;
 }

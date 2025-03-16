@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="../css/login.css">
         
         <!--JS FILE-->
-        <script src="../js/script.js"></script>
+        <script src="../js/validation.js"></script>
     </head>
     <body>
         
@@ -23,12 +23,14 @@
                 <div id="signup-form">
                     <h1>Create account</h1>
                     <div id="form-data">
-                        <form action="" method="POST" autocomplete="off" onsubmit="return signupValidation()">
+                        <form action="../LoginAndSignUp" method="POST" enctype="multipart/form-data" autocomplete="off" onsubmit="return signupValidation()">
+                            <label id="custom-file-label" for="signup_photo">Upload Profile Photo</label>
+                            <input id="signup_photo" type="file" accept="image/*" name="user_profile_photo" onchange="updateFileName()" /> <br><br>
                             <input id="signup_uname" type="text" name="user_name" value="" placeholder="Name" autofocus /> <br><br>
                             <input id="signup_email" type="email" name="user_email" value="" placeholder="Email" /> <br><br>
                             <input id="signup_mobile" type="number" name="user_mobile" value="" placeholder="Mobile number" /> <br><br>
-                            <textarea id="signup_address" name="user_address" placeholder="Address"></textarea> <br><br>
-                            <input id="signup_pwd" type="password" name="user_pwd" value="" placeholder="Password" /> <br><br>
+                            <textarea id="signup_address" name="user_address" placeholder="Address"></textarea> <br>
+                            <input id="signup_pwd" type="password" name="user_pwd" value="" placeholder="Password" /> <br>
                             <p id="msg"></p>
                             <br>
                             <input type="submit" value="REGISTER" />

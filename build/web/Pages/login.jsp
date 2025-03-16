@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="../css/login.css">
         
         <!--JS FILE-->
-        <script src="../js/script.js"></script>
+        <script src="../js/validation.js"></script>
     </head>
     <body>
         <section id="wrapper">
@@ -21,8 +21,9 @@
                 <div id="login-design" style="border-radius: 10px 0px 0px 10px;">
                     <div id="welcome-heading">Welcome Back!</div>
                     <p id="welcome-line">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus egestas nisi vitae ultricies porttitor. Sed varius ac nunc sit justo.</p>
+                    <%! String login; %>
                     <% 
-                        String login = request.getParameter("login");
+                        login = request.getParameter("login");
                         if(login.equalsIgnoreCase("user"))
                         {
                             %>
@@ -35,7 +36,7 @@
                 <div id="login-form">
                     <h1>LogIn to XenzKart</h1>
                     <div id="form-data">
-                        <form action="" method="POST" autocomplete="off" onsubmit="return loginValidation()">
+                        <form action="../LoginAndSignUp?user_type=<%= login %>" method="POST" autocomplete="off" onsubmit="return loginValidation()">
                             <input id="login_email" type="email" name="user_email" value="" placeholder="Email" autofocus /> <br><br>
                             <input id="login_pwd" type="password" name="user_pwd" value="" placeholder="Password" /> <br><br>
                             <p id="msg"></p>
