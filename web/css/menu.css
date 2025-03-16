@@ -1,0 +1,154 @@
+@import url(style.css);
+
+header {
+    width: 100%;
+    background-color: #fff;
+    position: sticky;
+    top: 0px;
+    z-index: 1000;
+}
+
+#MyHeader {
+    width: 1100px;
+    background-color: #fff;
+    margin: 0 auto;
+}
+
+#MyHeader #navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #fff;
+    box-shadow: var(--box-shadow);
+    position: relative;
+    font-family: MyBold;
+}
+
+#MyHeader #navbar .logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #000;
+}
+
+#MyHeader #navbar .logo a {
+    text-decoration: none;
+    color: #000;
+}
+
+#MyHeader #navbar .logo span {
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--purple-color);
+}
+
+#MyHeader #navbar #menu {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    position: relative;
+    font-family: MyRegular;
+}
+
+#MyHeader #navbar #menu #search_bar {
+    outline: 0px;
+    width: 200px;
+    height: 30px;
+    border-radius: 15px;
+    border: 1px solid var(--font-color);
+    background-color: var(--bg-lightgrey);
+    padding: 0px 10px;
+    display: none;
+}
+
+#MyHeader #navbar #menu #search_bar:focus {
+    border: 1px solid #000;
+}
+
+#MyHeader #navbar #menu #search_bar:focus::placeholder {
+    color: var(--purple-color);
+}
+
+#MyHeader #navbar #menu #search_btn {
+    height: 30px;
+    border: 0px;
+    background-color: transparent;
+    font-size: 15px;
+    margin: 0px;
+    font-weight: lighter;
+}
+
+#MyHeader #navbar #menu i {
+    font-size: 12px;
+}
+
+#MyHeader #navbar #menu a {
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+#MyHeader #navbar #menu a:hover {
+    color: var(--purple-color);
+    border-bottom: 2px solid var(--dark-purple-color);
+    border-radius: 3px;
+}
+
+#MyHeader #navbar #menu .active {
+    color: var(--purple-color);
+    position: relative;
+}
+
+#MyHeader #navbar #menu .active::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--dark-purple-color);
+}
+
+#MyHeader #navbar .actions {
+    display: flex;
+    gap: 10px;
+}
+
+#MyHeader #navbar .actions .btn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background-color: var(--purple-color);
+    color: #fff;
+    border: none;
+    padding: 8px 20px;
+    border-radius: var(--half-border-radius);
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#MyHeader #navbar .actions .btn i {
+    background-color: transparent;
+    color: #fff;
+}
+
+#MyHeader #navbar .actions .btn:hover {
+    background-color: var(--dark-purple-color);
+}
+
+#MyHeader #navbar .actions .count_btn{
+    position: relative;
+}
+
+#MyHeader #navbar .actions .count_btn #count{
+    background-color: #487eb0;
+    position: absolute;
+    padding: 0px 4px 4px 4px;
+    width: 13px;
+    height: 17px;
+    border-radius: 50%;
+    top: -2px;
+    left: -2px;
+    color: #fff;
+}

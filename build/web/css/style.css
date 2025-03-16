@@ -1,4 +1,9 @@
 @font-face {
+    font-family: MyBold;
+    src: url(Fonts/Poppins-Bold.ttf);
+}
+
+@font-face {
     font-family: MySemiBold;
     src: url(Fonts/Poppins-SemiBold.ttf);
 }
@@ -41,6 +46,9 @@ button {
 :root {
     --purple-color: #706fd3;
     --dark-purple-color: #474787;
+    --font-color: #888;
+    --bg-lightgrey: #f1f3f8;
     --half-border-radius: 5px;
     --border-radius: 10px;
+    --box-shadow: 0 25px 90px 0 #04020008;
 }

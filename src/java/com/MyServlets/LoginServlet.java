@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class LoginAndSignUpServlet extends HttpServlet {
+public class LoginServlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -34,16 +34,26 @@ public class LoginAndSignUpServlet extends HttpServlet {
             {
                 if(rd.adminLogin(session))
                 {
-                    LoginDataBean profile = (LoginDataBean)session.getAttribute("userDetails");
+                    LoginDataBean profile = (LoginDataBean)session.getAttribute("adminDetails");
+                    out.println(profile.getId()+" "+ profile.getName()+" "+profile.getProfileImage()+" "+profile.getEmail()+" "+profile.getMobile()+" "+profile.getPassword()+" "+profile.getStatus()+" "+profile.getRegisterTime());
+                    out.println("success");
                 }
                 else
                 {
-                     
+                    request.getRequestDispatcher("Pages/displayError.jsp").include(request, response);
                 }
             }
             else if(user_type.equalsIgnoreCase("user"))
             {
-                rd.userLogin(session);
+                if(rd.userLogin(session))
+                {
+                    LoginDataBean profile = (LoginDataBean)session.getAttribute("userDetails");
+                    out.println("success");
+                }
+                else
+                {
+                    request.getRequestDispatcher("Pages/displayError.jsp").include(request, response);
+                }
             }
         }
     }
