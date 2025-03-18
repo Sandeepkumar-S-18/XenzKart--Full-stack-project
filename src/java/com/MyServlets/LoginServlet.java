@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 public class LoginServlet extends HttpServlet {
-
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    
+    public void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
@@ -30,34 +30,35 @@ public class LoginServlet extends HttpServlet {
             
             RetrievingData rd = new RetrievingData();
             
-            if(user_type.equalsIgnoreCase("admin"))
+           if(user_type.equalsIgnoreCase("admin"))
             {
                 if(rd.adminLogin(session))
                 {
-                    LoginDataBean profile = (LoginDataBean)session.getAttribute("adminDetails");
-                    out.println(profile.getId()+" "+ profile.getName()+" "+profile.getProfileImage()+" "+profile.getEmail()+" "+profile.getMobile()+" "+profile.getPassword()+" "+profile.getStatus()+" "+profile.getRegisterTime());
-                    out.println("success");
+                    response.sendRedirect("Pages/home.jsp?user_type=admin");
                 }
                 else
                 {
-                    request.getRequestDispatcher("Pages/displayError.jsp").include(request, response);
+                    response.sendRedirect("Pages/displayError.jsp?user_type=admin");
                 }
             }
             else if(user_type.equalsIgnoreCase("user"))
             {
                 if(rd.userLogin(session))
                 {
-                    LoginDataBean profile = (LoginDataBean)session.getAttribute("userDetails");
-                    out.println("success");
+                    response.sendRedirect("Pages/home.jsp?user_type=user");
                 }
                 else
                 {
-                    request.getRequestDispatcher("Pages/displayError.jsp").include(request, response);
+                    response.sendRedirect("Pages/displayError.jsp?user_type=user");
                 }
             }
         }
+        catch(Exception e)
+        {
+            System.out.println("Error");
+        }
     }
-
+    
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -68,7 +69,7 @@ public class LoginServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
@@ -82,7 +83,7 @@ public class LoginServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }

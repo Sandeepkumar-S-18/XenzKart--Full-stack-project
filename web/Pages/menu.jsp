@@ -22,16 +22,49 @@
                 <nav id="navbar">
                     <div class="logo"> <a href="home.jsp"><span>XENZ</span>KART</a> </div>
                     <div id="menu">
-                        <a href="#" class="active">HOME</a>
-                        <a href="#">ABOUT</a>
-                        <a href="#">PRODUCTS</a>
-                        <a href="#">CONTACT</a>
+                        <a href="home.jsp" class="active">HOME</a>
+                        <a href="about.jsp">ABOUT</a>
+                        <a href="product.jsp">PRODUCTS</a>
+                        <%
+                            String user_type = request.getParameter("user_type");
+                            
+                            if(user_type.equals("admin"))
+                            {
+                                %>
+                                <a href="manageOrders.jsp">MANAGE ORDERS</a>
+                                <%
+                            }
+                            else if(user_type.equals("user"))
+                            {
+                                %>
+                                <a href="contact.html">CONTACT</a>
+                                <%
+                            }
+                        %>
                         <div> <input id="search_bar" type="search" value="" placeholder="Search"> </div>
                         <button class="fas fa-search" id="search_btn" onclick="searchBar()"></button>
                     </div>
                     <div class="actions">
-                        <a href="#" class="btn"><i class="fas fa-user"></i>Login</a>
-                        <a href="#" class="btn count_btn"><i class="fas fa-lock"></i> <span id="count">0</span> Cart</a>
+                        <a href="#" class="btn"><i class="fas fa-user"></i>Profile</a>
+                        <%
+                            if(user_type.equals("admin"))
+                            {
+                                %>
+                                <a href="#" class="btn count_btn">
+                                    <i class="fas fa-history"></i> History
+                                </a>
+                                <%
+                            }
+                            else if(user_type.equals("user"))
+                            {
+                                %>
+                                <a href="#" class="btn count_btn">
+                                    <i class="fas fa-lock"></i> 
+                                    <span id="count">0</span> Cart
+                                </a>
+                        <%
+                            }
+                        %>
                     </div>
                 </nav>
             </div>
