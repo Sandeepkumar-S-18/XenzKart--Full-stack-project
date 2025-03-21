@@ -25,11 +25,11 @@
                     <%! String login; %>
                     <% 
                         login = request.getParameter("login");
-                        if(login.equalsIgnoreCase("user"))
+                        if(login.equals("user"))
                         {
                             %>
                             <div id="signup-redirect">Don't have an account?</div>
-                            <a href="signup.html">Sign Up</a>
+                            <a href="signup.jsp">Sign Up</a>
                             <%
                         }
                     %>
@@ -41,6 +41,15 @@
                             <input id="login_email" type="email" name="user_email" value="" placeholder="Email" autofocus /> <br><br>
                             <input id="login_pwd" type="password" name="user_pwd" value="" placeholder="Password" /> <br><br>
                             <p id="msg"></p>
+                            <%
+                                String errorMsg = request.getParameter("errorMsg");
+                                if(errorMsg != null)
+                                {
+                                    %>
+                                    <p id="msg">Wrong credentials !!!</p>
+                                    <%
+                                }
+                            %>
                             <br>
                             <input type="submit" value="LOGIN" />
                         </form>

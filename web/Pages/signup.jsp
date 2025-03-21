@@ -1,9 +1,8 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <!-- FAVICON -->
         <link rel="shortcut icon" href="../Images/favicon.png" type="image/x-icon">
         <title>XenzKart - SIGN UP</title>
@@ -31,6 +30,15 @@
                             <textarea id="signup_address" name="user_address" placeholder="Address"></textarea> <br>
                             <input id="signup_pwd" type="password" name="user_pwd" value="" placeholder="Password" /> <br>
                             <p id="msg"></p>
+                            <%
+                                String errorMsg = request.getParameter("errorMsg");
+                                if(errorMsg != null)
+                                {
+                                    %>
+                                    <p id="msg">Account is not created. Please try again !!!</p>
+                                    <%
+                                }
+                            %>
                             <br>
                             <input type="submit" value="REGISTER" />
                         </form>
@@ -45,6 +53,5 @@
             </div>
             
         </section>
-        
     </body>
 </html>

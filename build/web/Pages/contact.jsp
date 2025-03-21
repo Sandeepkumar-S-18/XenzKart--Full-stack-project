@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>XenzKart - HOME</title>
+        <title>XenzKart - CONTACT</title>
         
         <!-- FAVICON -->
         <link rel="shortcut icon" href="../Images/favicon.png" type="image/x-icon">

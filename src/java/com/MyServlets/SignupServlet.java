@@ -66,11 +66,11 @@ public class SignupServlet extends HttpServlet {
             
             if(nr.createAccount(session))
             {
-                out.println("success");
+                response.sendRedirect("Pages/home.jsp?user_type=user");
             }
             else
             {
-                request.getRequestDispatcher("Pages/displayError.jsp").include(request, response);
+                response.sendRedirect("Pages/signup.jsp?errorMsg=false");
             }
         }
     }

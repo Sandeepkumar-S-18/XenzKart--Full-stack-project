@@ -1,10 +1,9 @@
+<%@page import="com.MyJavaClass.LoginDataBean"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <!-- FAVICON -->
-        <link rel="shortcut icon" href="../Images/favicon.png" type="image/x-icon">
         <title>XenzKart</title>
         
         <!--FONTAWESOME-->
@@ -18,6 +17,11 @@
     </head>
     <body>
         <header>
+            <%! String userType; %>
+            <%
+                LoginDataBean loginDataBean = (LoginDataBean)session.getAttribute("loginDetails");
+                userType = loginDataBean.getUserType();
+            %>
             <div id="MyHeader">
                 <nav id="navbar">
                     <div class="logo"> <a href="home.jsp"><span>XENZ</span>KART</a> </div>
@@ -26,18 +30,16 @@
                         <a href="about.jsp">ABOUT</a>
                         <a href="product.jsp">PRODUCTS</a>
                         <%
-                            String user_type = request.getParameter("user_type");
-                            
-                            if(user_type.equals("admin"))
+                            if(userType.equals("admin"))
                             {
                                 %>
                                 <a href="manageOrders.jsp">MANAGE ORDERS</a>
                                 <%
                             }
-                            else if(user_type.equals("user"))
+                            else if(userType.equals("user"))
                             {
                                 %>
-                                <a href="contact.html">CONTACT</a>
+                                <a href="contact.jsp">CONTACT</a>
                                 <%
                             }
                         %>
@@ -47,7 +49,7 @@
                     <div class="actions">
                         <a href="#" class="btn"><i class="fas fa-user"></i>Profile</a>
                         <%
-                            if(user_type.equals("admin"))
+                            if(userType.equals("admin"))
                             {
                                 %>
                                 <a href="#" class="btn count_btn">
@@ -55,7 +57,7 @@
                                 </a>
                                 <%
                             }
-                            else if(user_type.equals("user"))
+                            else if(userType.equals("user"))
                             {
                                 %>
                                 <a href="#" class="btn count_btn">
@@ -69,5 +71,15 @@
                 </nav>
             </div>
         </header>
+                    
+        <section id="banner">
+            <div id="banner_image"></div>
+            <div id="banner_content">
+                <div class="banner_text">Up To 60% Off Now</div>
+                <div class="banner_text">Mid Season Sale 40%</div>
+                <div class="banner_text">Final Clearance : Take 20% Off 'Sale Must-haves'</div>
+                <div class="banner_text"> <a href="product.jsp"><button title="BUY NOW">Start Shopping &nbsp; <i class="fa fa-arrow-right"></i> </button></a> </div>
+            </div>
+        </section>
     </body>
 </html>

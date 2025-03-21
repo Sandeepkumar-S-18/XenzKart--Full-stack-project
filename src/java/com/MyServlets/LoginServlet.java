@@ -22,6 +22,7 @@ public class LoginServlet extends HttpServlet {
             String user_type = request.getParameter("user_type");
             
             LoginDataBean loginDataBean = new LoginDataBean();
+            loginDataBean.setUserType(user_type);
             loginDataBean.setEmail(user_email);
             loginDataBean.setPassword(user_pwd);
             
@@ -30,27 +31,13 @@ public class LoginServlet extends HttpServlet {
             
             RetrievingData rd = new RetrievingData();
             
-           if(user_type.equalsIgnoreCase("admin"))
+            if(rd.login(session))
             {
-                if(rd.adminLogin(session))
-                {
-                    response.sendRedirect("Pages/home.jsp?user_type=admin");
-                }
-                else
-                {
-                    response.sendRedirect("Pages/displayError.jsp?user_type=admin");
-                }
+              response.sendRedirect("Pages/home.jsp");
             }
-            else if(user_type.equalsIgnoreCase("user"))
+            else
             {
-                if(rd.userLogin(session))
-                {
-                    response.sendRedirect("Pages/home.jsp?user_type=user");
-                }
-                else
-                {
-                    response.sendRedirect("Pages/displayError.jsp?user_type=user");
-                }
+                response.sendRedirect("Pages/login.jsp?login="+user_type+"&errorMsg=false");
             }
         }
         catch(Exception e)
