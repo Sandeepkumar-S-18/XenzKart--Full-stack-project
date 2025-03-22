@@ -18,7 +18,7 @@ public class NewRecords
         int rowCount = 0;
         int i = 0;
         
-        LoginDataBean userData = (LoginDataBean)session.getAttribute("userDetails");
+        LoginDataBean userData = (LoginDataBean)session.getAttribute("loginDetails");
         String name = userData.getName();
         String profileImage = userData.getProfileImage();
         String email = userData.getEmail();

@@ -51,26 +51,27 @@ public class SignupServlet extends HttpServlet {
             File f2 = new File(newFilePath);
             f1.renameTo(f2);
             
-            LoginDataBean userDetails = new LoginDataBean();
-            userDetails.setName(mpr.getParameter("user_name"));
-            userDetails.setProfileImage(newFileName);
-            userDetails.setEmail(mpr.getParameter("user_email").toLowerCase());
-            userDetails.setMobile(Long.parseLong(mpr.getParameter("user_mobile")));
-            userDetails.setAddress(mpr.getParameter("user_address"));
-            userDetails.setPassword(mpr.getParameter("user_pwd"));
+            LoginDataBean loginDetails = new LoginDataBean();
+            loginDetails.setUserType("user");
+            loginDetails.setName(mpr.getParameter("user_name"));
+            loginDetails.setProfileImage(newFileName);
+            loginDetails.setEmail(mpr.getParameter("user_email").toLowerCase());
+            loginDetails.setMobile(Long.parseLong(mpr.getParameter("user_mobile")));
+            loginDetails.setAddress(mpr.getParameter("user_address"));
+            loginDetails.setPassword(mpr.getParameter("user_pwd"));
             
             HttpSession session = request.getSession();
-            session.setAttribute("userDetails", userDetails);
+            session.setAttribute("loginDetails", loginDetails);
             
             NewRecords nr = new NewRecords();
             
             if(nr.createAccount(session))
             {
-                response.sendRedirect("Pages/home.jsp?user_type=user");
+                response.sendRedirect("Pages/home.jsp");
             }
             else
             {
-                response.sendRedirect("Pages/signup.jsp?errorMsg=false");
+                response.sendRedirect("Pages/login.jsp?login=user&errorMsg=false");
             }
         }
     }

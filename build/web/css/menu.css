@@ -156,12 +156,14 @@ header {
 /*====================================== /HEADER ======================================*/
 
 /*====================================== BANNER ======================================*/
+/* Banner Section */
 #banner {
     height: 500px;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 #banner #banner_image {
@@ -175,6 +177,7 @@ header {
     background-repeat: no-repeat;
     filter: contrast(50%) brightness(50%);
     z-index: -1;
+    transition: transform 1s ease-in-out;
 }
 
 #banner #banner_content {

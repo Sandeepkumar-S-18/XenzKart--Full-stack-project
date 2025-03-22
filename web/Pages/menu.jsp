@@ -77,8 +77,10 @@
             <div id="banner_content">
                 <div class="banner_text">Up To 60% Off Now</div>
                 <div class="banner_text">Mid Season Sale 40%</div>
-                <div class="banner_text">Final Clearance : Take 20% Off 'Sale Must-haves'</div>
-                <div class="banner_text"> <a href="product.jsp"><button title="BUY NOW">Start Shopping &nbsp; <i class="fa fa-arrow-right"></i> </button></a> </div>
+                <div class="banner_text">Final Clearance: Take 20% Off 'Sale Must-haves'</div>
+                <div class="banner_text">
+                    <a href="product.jsp"><button title="BUY NOW">Start Shopping &nbsp; <i class="fa fa-arrow-right"></i></button></a>
+                </div>
             </div>
         </section>
     </body>
