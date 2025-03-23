@@ -156,7 +156,6 @@ header {
 /*====================================== /HEADER ======================================*/
 
 /*====================================== BANNER ======================================*/
-/* Banner Section */
 #banner {
     height: 500px;
     position: relative;
@@ -224,3 +223,36 @@ header {
     background-color: var(--dark-purple-color);
 }
 /*====================================== /BANNER ======================================*/
+
+/*====================================== PROFILE ======================================*/
+#profile-wrapper {
+    width: 100%;
+    background-color: var(--bg-color);
+    padding: 50px 0px;
+}
+
+#profile-wrapper #profile-header {
+    font-family: MyBold;
+    font-size: 28px;
+    width: 1100px;
+    margin: 0 auto;
+    color: var(--purple-color);
+    padding-bottom: 10px; 
+}
+
+#profile-wrapper #profile-div {
+    margin: 0 auto;
+    background-color: red;
+    width: 1100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: space-evenly;
+}
+
+#profile-wrapper #profile-div div {
+    width: 500px;
+    height: 200px;
+    background: green;
+}
+/*====================================== /PROFILE ======================================*/

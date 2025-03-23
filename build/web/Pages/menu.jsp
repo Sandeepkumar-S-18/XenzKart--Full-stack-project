@@ -47,13 +47,14 @@
                         <button class="fas fa-search" id="search_btn" onclick="searchBar()"></button>
                     </div>
                     <div class="actions">
-                        <a href="#" class="btn"><i class="fas fa-user"></i>Profile</a>
+                        <a href="profile.jsp" class="btn"><i class="fas fa-user"></i>Profile</a>
                         <%
                             if(userType.equals("admin"))
                             {
                                 %>
                                 <a href="#" class="btn count_btn">
-                                    <i class="fas fa-history"></i> History
+                                    <i class="fas fa-lock"></i> 
+                                    <span id="count">0</span> Notification
                                 </a>
                                 <%
                             }
@@ -64,24 +65,12 @@
                                     <i class="fas fa-lock"></i> 
                                     <span id="count">0</span> Cart
                                 </a>
-                        <%
+                                <%
                             }
                         %>
                     </div>
                 </nav>
             </div>
         </header>
-                    
-        <section id="banner">
-            <div id="banner_image"></div>
-            <div id="banner_content">
-                <div class="banner_text">Up To 60% Off Now</div>
-                <div class="banner_text">Mid Season Sale 40%</div>
-                <div class="banner_text">Final Clearance: Take 20% Off 'Sale Must-haves'</div>
-                <div class="banner_text">
-                    <a href="product.jsp"><button title="BUY NOW">Start Shopping &nbsp; <i class="fa fa-arrow-right"></i></button></a>
-                </div>
-            </div>
-        </section>
     </body>
 </html>

@@ -1,3 +1,4 @@
+/*====================================== SEARCHBAR ======================================*/
 function searchBar()
 {
     let x = document.getElementById('search_bar');
@@ -11,8 +12,11 @@ function searchBar()
         x.style.display = "none";
     }
 }
+/*====================================== /SEARCHBAR ======================================*/
 
-window.onload = function () {
+/*====================================== ACTIVE LINK ======================================*/
+window.onload = function () 
+{
     var currentLocation = window.location.pathname.split("/").pop();
 
     var menuLinks = document.getElementById("menu").getElementsByTagName("a");
@@ -33,18 +37,22 @@ window.onload = function () {
         }
     }
 };
+/*====================================== /ACTIVE LINK ======================================*/
 
-function startBannerSlideshow() {
+/*====================================== SLIDER ======================================*/
+function startBannerSlideshow() 
+{
     setTimeout("changeBanner()", 5000);
 }
 
-function changeBanner() {
+function changeBanner() 
+{
     document.getElementById("banner_image").style.transform = "translateX(-100%)";
-    
     setTimeout("updateBanner()", 1000);
 }
 
-function updateBanner() {
+function updateBanner() 
+{
     var banners = [
         "../Images/banner1.jpg",
         "../Images/banner2.jpg",
@@ -55,7 +63,8 @@ function updateBanner() {
     
     var bannerElement = document.getElementById("banner_image");
     
-    if (typeof currentIndex === "undefined") {
+    if (typeof currentIndex === "undefined") 
+    {
         currentIndex = 0;
     }
 
@@ -68,14 +77,42 @@ function updateBanner() {
     setTimeout("slideInBanner()", 50);
 }
 
-function slideInBanner() {
+function slideInBanner() 
+{
     document.getElementById("banner_image").style.transition = "transform 1s ease-in-out";
     document.getElementById("banner_image").style.transform = "translateX(0)";
 
-    setTimeout("changeBanner()", 5000); // Continue the loop
+    setTimeout("changeBanner()", 5000);
 }
 
-// Start the slideshow when the page loads
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () 
+{
     startBannerSlideshow();
 });
+/*====================================== /SLIDER ======================================*/
+
+/*====================================== CONTACT ======================================*/
+function sendEmail() 
+{
+    let name = document.getElementById("user-name").value.trim();
+    let mobile = document.getElementById("user-mobile").value.trim();
+    let comment = document.getElementById("user-msg").value.trim();
+
+    if (name === "" || mobile === "" || comment === "") 
+    {
+        alert("Please fill in all the required fields before submitting your message.");
+        return;
+    }
+
+    let subject = "XENZKART - Customer Inquiry";
+    let body = `Dear Team,\n\nI hope this email finds you well. Below are my contact details:\n\n` +
+               `Full Name: ${name}\n` +
+               `Mobile Number: ${mobile}\n\n` +
+               `Message:\n${comment}\n\n` +
+               `Looking forward to your response.\n\nBest regards,\n${name}`;
+
+    let mailtoLink = `mailto:sandeep6361460@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    document.getElementById("submit-anchor").href = mailtoLink;
+}
+/*====================================== /CONTACT ======================================*/

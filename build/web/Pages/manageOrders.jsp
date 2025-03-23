@@ -10,6 +10,7 @@
     </head>
     <body>
         <%@include file="menu.jsp" %>
+        <%@include file="banner.html" %>
         <%@include file="footer.html" %>
     </body>
 </html>
