@@ -48,6 +48,19 @@
                     </div>
                 </div>
         </section>
+        <section id="my-introduction">
+            <div id="profile-header">About Me</div>
+            <div id="profile-div">
+                <div id="profile-image">
+                    <img src="../Images/Profile pic.jpg" />
+                </div>
+                <div id="profile-intro">
+                    <div id="my-name">I am <a href="https://www.linkedin.com/in/sandeepku-s/">Sandeepkumar S.</a></div>
+                    <p class="my-intro-content">An <span>Electronics and Communication Engineering (ECE</span>) student with a strong interest in software development and Full-Stack Web Development. Currently gaining hands-on experience in modern web technologies through <a href="https://www.vthreesoft.in/">VThreeSoft Technologies</a>, focusing on building dynamic and scalable applications.</p>
+                    <p class="my-intro-content">With expertise in <span>Java, HTML, CSS, JS and database management</span>, passionate about developing efficient software solutions. A solid foundation in ECE allows for integrating both hardware and software to create innovative technology-driven applications.</p>
+                </div>
+            </div>
+        </section>
         <%@include file="footer.html" %>
     </body>
 </html>

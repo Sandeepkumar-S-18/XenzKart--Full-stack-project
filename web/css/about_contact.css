@@ -1,7 +1,7 @@
 @import url(style.css);
 
 /*====================================== ABOUT ======================================*/
-#about-wrap {
+#about-wrap,#my-introduction {
     width: 100%;
     padding: 30px 0px;
     background-color: var(--bg-color);
@@ -56,6 +56,56 @@
     height: 50px;
     font-family: MyBold;
     font-size: 35px;
+}
+
+#my-introduction #profile-header {
+    margin: 0 auto;
+    width: 1100px;
+    text-align: center;
+    -webkit-text-stroke: 1px var(--purple-color);
+    padding-bottom: 20px;
+    font-size: 40px;
+    font-family: MyBold;
+    color: transparent;
+}
+
+#my-introduction #profile-div {
+    width: 800px;
+    margin: 0 auto;
+    padding-bottom: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-content: space-evenly;
+}
+
+#my-introduction #profile-div #profile-image img {
+    width: 300px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--dark-purple-color);
+}
+#my-introduction #profile-div #profile-intro {
+    width: 450px;
+    margin-left: 50px;
+}
+
+#my-introduction #profile-div #profile-intro #my-name {
+    font-size: 36px;
+    margin-bottom: 20px; 
+}
+
+#my-introduction #profile-div #profile-intro #my-name a {
+    font-family: MyBold;
+    color: var(--purple-color);
+    text-decoration: underline;
+}
+
+#my-introduction #profile-div #profile-intro .my-intro-content {
+    text-align: justify;
+}
+
+#my-introduction #profile-div #profile-intro .my-intro-content a,span {
+    color: var(--purple-color);
 }
 /*====================================== /ABOUT ======================================*/
 

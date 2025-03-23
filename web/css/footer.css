@@ -112,51 +112,48 @@
     color: var(--font-color);
 }
 
-#copyright_footer div {
+#copyright_footer #copyright_wrap {
     width: 1100px;
     height: 40px;
     margin: 0 auto;
     text-align: left;
 }
 
-#copyright_footer div div:nth-child(1) {
+#copyright_footer #copyright_wrap div:nth-child(1) {
     width: 600px;
     height: 40px;
     float: left;
     padding: 10px;
 }
 
-#copyright_footer div div:nth-child(1) a {
+#copyright_footer #copyright_wrap div:nth-child(1) a {
     color: var(--purple-color);
     transition: all 0.3s;
 }
 
-#copyright_footer div div:nth-child(1) a:hover {
+#copyright_footer #copyright_wrap div:nth-child(1) a:hover {
     font-weight: bolder;
 }
 
-#copyright_footer div div:nth-child(2) {
+#copyright_footer #copyright_wrap div:nth-child(2) {
     width: 400px;
     float: right;
 }
 
-#copyright_footer div div:nth-child(2) a {
-    color: #fff;
-    font-size: 20px;
-}
-
-#copyright_footer div div:nth-child(2) a span {
+#copyright_footer #copyright_wrap div:nth-child(2) a span {
     width: 30px;
     height: 30px;
     margin: 0px 10px;
     padding: 10px 0px 0px 10px;
     float: right;
+    color: #fff;
+    font-size: 20px;
     background-color: var(--purple-color);
     border-radius: var(--half-border-radius);
     transition: all 0.3s;
 }
 
-#copyright_footer div div:nth-child(2) a span:hover {
+#copyright_footer #copyright_wrap div:nth-child(2) a span:hover {
     background-color: var(--dark-purple-color);
     font-weight: bold;
 }
