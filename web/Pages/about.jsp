@@ -29,22 +29,22 @@
                     <div class="about-table-div">
                         <span class="about-table-img"><img src="../Images/person-icon.png" /></span>
                         <span class="about-count">200+</span>
-                        <p>People work in our company</p>
+                        <p>People work in our company.</p>
                     </div>
                     <div class="about-table-div">
                         <span class="about-table-img"><img src="../Images/home-icon.png" /></span>
                         <span class="about-count">160+</span>
-                        <p>Houses we build for our client</p>
+                        <p>Products available for custombers.</p>
                     </div>
                     <div class="about-table-div">
                         <span class="about-table-img"><img src="../Images/global-icon.png" /></span>
                         <span class="about-count">25+</span>
-                        <p>Cities around the world</p>
+                        <p>Cities around the world.</p>
                     </div>
                     <div class="about-table-div">
                         <span class="about-table-img"><img src="../Images/mug-icon.png" /></span>
                         <span class="about-count">1000+</span>
-                        <p>People work in our company</p>
+                        <p>People work in our company.</p>
                     </div>
                 </div>
         </section>
@@ -58,6 +58,13 @@
                     <div id="my-name">I am <a href="https://www.linkedin.com/in/sandeepku-s/">Sandeepkumar S.</a></div>
                     <p class="my-intro-content">An <span>Electronics and Communication Engineering (ECE</span>) student with a strong interest in software development and Full-Stack Web Development. Currently gaining hands-on experience in modern web technologies through <a href="https://www.vthreesoft.in/">VThreeSoft Technologies</a>, focusing on building dynamic and scalable applications.</p>
                     <p class="my-intro-content">With expertise in <span>Java, HTML, CSS, JS and database management</span>, passionate about developing efficient software solutions. A solid foundation in ECE allows for integrating both hardware and software to create innovative technology-driven applications.</p>
+                    <div id="social-icons">
+                        <a href="https://github.com/Sandeepkumar-S-18" target="_blank"><span class="fab fa-github"></span></a>
+                        <a href="https://www.linkedin.com/in/sandeepku-s/" target="_blank"><span class="fab fa-linkedin"></span></a>
+                        <a href="https://wa.me/+918123571317"><span class="fab fa-whatsapp"></span></a>
+                        <a href="tel:+918123571317"><span class="fa fa-phone"></span></a>
+                        <a href="mailto:sandeep6361460@gmail.com"><span class="fa fa-envelope"></span></a>
+                    </div>
                 </div>
             </div>
         </section>

@@ -28,43 +28,33 @@ public class RetrievingData
         
         try
         {
+            String sqlQuery = "";
+            
             if(userType.equals("admin"))
             {
-                PreparedStatement ps1 = con.prepareStatement("select * from xenzkart_admin where email=? and password=md5(?)");
-                ps1.setString(1, email);
-                ps1.setString(2, password);
-                ResultSet rs1 = ps1.executeQuery();
-
-                while(rs1.next())
-                {
-                    rowCount = rs1.getRow();
-                    id = rs1.getInt("id");
-                    name = rs1.getString("name");
-                    profilePhoto = rs1.getString("profile_image");
-                    address = rs1.getString("address");
-                    registerTime = rs1.getString("register_time");
-                    status = rs1.getString("status");
-                    mobile = rs1.getLong("mobile");
-                }
+                sqlQuery = "select * from xenzkart_admin where email=? and password=md5(?)";
             }
             else if(userType.equals("user"))
             {
-                PreparedStatement ps1 = con.prepareStatement("select * from xenzkart_user where email=? and password=md5(?)");
-                ps1.setString(1, email);
-                ps1.setString(2, password);
-                ResultSet rs1 = ps1.executeQuery();
+                sqlQuery = "select * from xenzkart_user where email=? and password=md5(?)";
+            }
+            
+            PreparedStatement ps1 = con.prepareStatement(sqlQuery);
+            
+            ps1.setString(1, email);
+            ps1.setString(2, password);
+            ResultSet rs1 = ps1.executeQuery();
 
-                while(rs1.next())
-                {
-                    rowCount = rs1.getRow();
-                    id = rs1.getInt("id");
-                    name = rs1.getString("name");
-                    profilePhoto = rs1.getString("profile_image");
-                    address = rs1.getString("address");
-                    registerTime = rs1.getString("register_time");
-                    status = rs1.getString("status");
-                    mobile = rs1.getLong("mobile");
-                }
+            while(rs1.next())
+            {
+                rowCount = rs1.getRow();
+                id = rs1.getInt("id");
+                name = rs1.getString("name");
+                profilePhoto = rs1.getString("profile_image");
+                address = rs1.getString("address");
+                registerTime = rs1.getString("register_time");
+                status = rs1.getString("status");
+                mobile = rs1.getLong("mobile");
             }
         }
         catch (SQLException ex)

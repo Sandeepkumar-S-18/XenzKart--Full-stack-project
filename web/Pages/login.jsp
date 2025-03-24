@@ -45,9 +45,7 @@
                                 String errorMsg = request.getParameter("errorMsg");
                                 if(errorMsg != null)
                                 {
-                                    %>
-                                    <p id="msg">Wrong credentials !!!</p>
-                                    <%
+                                    %><p id="msg2">Wrong credentials !!!</p><%
                                 }
                             %>
                             <br>

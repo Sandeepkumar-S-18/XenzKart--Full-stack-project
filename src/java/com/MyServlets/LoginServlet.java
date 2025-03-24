@@ -33,7 +33,7 @@ public class LoginServlet extends HttpServlet {
             
             if(rd.login(session))
             {
-              response.sendRedirect("Pages/home.jsp");
+                response.sendRedirect("Pages/home.jsp");
             }
             else
             {

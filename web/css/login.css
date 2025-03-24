@@ -75,7 +75,7 @@
     cursor: default;
 }
 
-#wrapper #login-box #login-form #msg {
+#wrapper #login-box #login-form #msg,#msg2 {
     font-size: 10px;
 }
 

@@ -79,11 +79,16 @@
     align-content: space-evenly;
 }
 
+#my-introduction #profile-div #profile-image {
+    margin-top: 30px;
+}
+
 #my-introduction #profile-div #profile-image img {
     width: 300px;
     border-radius: var(--border-radius);
     border: 1px solid var(--dark-purple-color);
 }
+
 #my-introduction #profile-div #profile-intro {
     width: 450px;
     margin-left: 50px;
@@ -106,6 +111,24 @@
 
 #my-introduction #profile-div #profile-intro .my-intro-content a,span {
     color: var(--purple-color);
+}
+
+#my-introduction #profile-div #profile-intro .my-intro-content a:hover {
+    font-weight: bolder;
+}
+
+#my-introduction #profile-div #profile-intro #social-icons {
+    font-size: 26px;
+    margin-top: 10px;
+}
+
+#my-introduction #profile-div #profile-intro #social-icons a {
+    margin: 0px 5px;
+}
+
+#my-introduction #profile-div #profile-intro #social-icons a:hover {
+    color: var(--dark-purple-color);
+    font-weight: bolder;
 }
 /*====================================== /ABOUT ======================================*/
 

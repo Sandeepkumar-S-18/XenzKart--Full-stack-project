@@ -3,11 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/MyProject/web/css/about_contact.css</file>
-            <file>file:/E:/MyProject/web/css/style.css</file>
-            <file>file:/E:/MyProject/web/Pages/about.jsp</file>
-            <file>file:/E:/MyProject/web/Pages/footer.html</file>
-            <file>file:/E:/MyProject/web/css/footer.css</file>
+            <file>file:/E:/MyProject/src/java/com/MyServlets/SignupServlet.java</file>
+            <file>file:/E:/MyProject/web/Pages/profile.jsp</file>
+            <file>file:/E:/MyProject/src/java/com/MyServlets/UpdateRecordServlet.java</file>
+            <file>file:/E:/MyProject/src/java/com/MyDb/UpdateRecord.java</file>
+            <file>file:/E:/MyProject/web/css/menu.css</file>
         </group>
     </open-files>
 </project-private>

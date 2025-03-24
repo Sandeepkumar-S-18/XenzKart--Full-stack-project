@@ -47,7 +47,7 @@ function startBannerSlideshow()
 
 function changeBanner() 
 {
-    document.getElementById("banner_image").style.transform = "translateX(-100%)";
+    document.getElementById("banner_image").style = "transform: translateX(-100%);";
     setTimeout("updateBanner()", 1000);
 }
 
@@ -116,3 +116,21 @@ function sendEmail()
     document.getElementById("submit-anchor").href = mailtoLink;
 }
 /*====================================== /CONTACT ======================================*/
+
+function enable() 
+{
+    document.getElementById("profile_photo").hidden = false;
+    document.getElementById("user_name").disabled = false;
+    document.getElementById("user_mobile").disabled = false;
+    document.getElementById("user_address").disabled = false;
+    document.getElementById("user_upd_pwd").hidden = false;
+    
+    let elements = document.getElementsByClassName("profile-details-text-box");
+    for (let i = 0; i < elements.length; i++) 
+    {
+        if(i != 2)
+        {
+            elements[i].style.border = "1px solid var(--purple-color)";
+        }
+    }
+}
