@@ -15,9 +15,10 @@
         <script src="../js/pageJS.js"></script>
     </head>
     <body>
-        <%! int id; String name, profileImag, email, address, password; long mobile; %>
+        <%! int id; String userType1, name, profileImag, email, address, password; long mobile; %>
         <%
             LoginDataBean loginData = (LoginDataBean)session.getAttribute("loginDetails");
+            userType1 = loginData.getUserType();
             id = loginData.getId();
             name = loginData.getName();
             profileImag = loginData.getProfileImage();
@@ -52,6 +53,12 @@
                         <br>
                         <input type="submit" value="UPDATE ACCOUNT" />
                     </form>
+                    <%
+                        if(userType1.equals("user"))
+                        {
+                            %><a href="../DeleteAccount">DELETE ACCOUNT</a><%
+                        }
+                    %>
                 </div>
             </div>
         </section>

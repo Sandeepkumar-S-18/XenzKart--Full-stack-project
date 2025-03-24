@@ -52,7 +52,7 @@ public class UpdateRecord
         }
         catch(SQLException ex)
         {
-            Logger.getLogger(NewRecords.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UpdateRecord.class.getName()).log(Level.SEVERE, null, ex);
         }
         if(i > 0)
         {
