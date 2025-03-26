@@ -52,6 +52,7 @@
                 <div id="product_video_box2" class="fa fa-play" onclick="playVideo()" title="XenzKart - Preview"></div>
             </div>
         </section>
+        <!-- ************************************** VIDEO DIV ************************************** -->
         <div id="overlay">
             <div id="product_details">
 		<button id="cls" onclick="cls()" title="CLOSE"> X </button>
@@ -62,9 +63,73 @@
                 </div>
             </div>
         </div>
+        <!-- ************************************** /VIDEO DIV ************************************** -->
         <!-- ====================================== /VIDEO ====================================== -->
         
-        <!-- ====================================== VIDEO ====================================== -->
+        <!-- ====================================== PRODUCT ====================================== -->
+        <!-- ************************************** PRODUCT HEADING ************************************** -->
+        <section id="product_heading_section">
+            <div id="product_heading">
+                <div>Shop With Us</div>
+                <div>Handpicked Favourites just for you</div>
+            </div>
+        </section>
+        <!-- ************************************** /PRODUCT HEADING ************************************** -->
+        <!-- ************************************** PRODUCT SECTION ************************************** -->
+        <section id="product_section">
+            <div id="product_section_wrap">
+                <div class="product_type_card">
+                    <a href="product.jsp">
+                        <div class="product_type_img"> <img src="../Images/product_type_img1.png" alt="Electronics" /> </div>
+                        <div class="product_type_title">Electronics</div>
+                    </a>
+                </div>
+                <div class="product_type_card">
+                    <a href="product.jsp">
+                        <div class="product_type_img"> <img src="../Images/product_type_img6.png" alt="Photography" /> </div>
+                        <div class="product_type_title">Photography</div>
+                    </a>
+                </div>
+                <div class="product_type_card">
+                    <a href="product.jsp">
+                        <div class="product_type_img"> <img src="../Images/product_type_img5.jpg" alt="Home & Office" /> </div>
+                        <div class="product_type_title">Home & Office</div>
+                    </a>
+                </div>
+                <div class="product_type_card">
+                    <a href="product.jsp">
+                        <div class="product_type_img"> <img src="../Images/product_type_img4.jpg" alt="Wearables" /> </div>
+                        <div class="product_type_title">Wearables</div>
+                    </a>
+                </div>
+                <div class="product_type_card">
+                    <a href="product.jsp">
+                        <div class="product_type_img"> <img src="../Images/product_type_img2.jpg" alt="Fitness" /> </div>
+                        <div class="product_type_title">Fitness</div>
+                    </a>
+                </div>
+                <div class="product_type_card">
+                    <a href="product.jsp">
+                        <div class="product_type_img"> <img src="../Images/product_type_img8.jpg" alt="Accessories" /> </div>
+                        <div class="product_type_title">Accessories</div>
+                    </a>
+                </div>
+                <div class="product_type_card">
+                    <a href="product.jsp">
+                        <div class="product_type_img"> <img src="../Images/product_type_img3.jpg" alt="Grocery" /> </div>
+                        <div class="product_type_title">Grocery</div>
+                    </a>
+                </div>
+                <div class="product_type_card">
+                    <a href="product.jsp">
+                        <div class="product_type_img"> <img src="../Images/product_type_img7.jpg" alt="Kitchen" /> </div>
+                        <div class="product_type_title">Kitchen</div>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- ************************************** /PRODUCT SECTION ************************************** -->
+        <!-- ====================================== /PRODUCT ====================================== -->
         
         <%@include file="footer.html" %>
     </body>

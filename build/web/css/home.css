@@ -113,8 +113,8 @@
 
 /* ====================================== VIDEO ====================================== */
 #product_video_section {
-    height: 420px;
-    padding: 10px 0px;
+    height: 300px;
+    padding: 40px 0px;
     position: relative;
     display: flex;
     justify-content: center;
@@ -218,3 +218,81 @@
 }
 /* ====================================== /VIDEO ====================================== */
 
+/* ====================================== PRODUCT ====================================== */
+/* ************************************** PRODUCT HEADING ************************************** */
+#product_heading_section {
+    width: 100%;
+    background-color: var(--bg-color);
+}
+
+#product_heading_section #product_heading {
+    width: 1100px;
+    padding: 15px 10px;
+    margin: 0 auto;
+}
+
+#product_heading_section #product_heading div:nth-child(1) {
+    font-family: MyBold;
+    font-size: 35px;
+}
+
+#product_heading_section #product_heading div:nth-child(2) {
+    color: grey;
+}
+/* ************************************** /PRODUCT HEADING ************************************** */
+/* ************************************** PRODUCT SECTION ************************************** */
+#product_section {
+    width: 100%;
+    padding: 10px 0px;
+}
+
+#product_section #product_section_wrap {
+    width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: space-evenly;
+}
+
+#product_section #product_section_wrap .product_type_card {
+    width: 255px;
+    margin: 10px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 25px 90px 0 grey;
+}
+
+#product_section #product_section_wrap .product_type_card a .product_type_img {
+    width: 245px;
+    height: 280px;
+    padding: 5px;
+}
+
+#product_section #product_section_wrap .product_type_card a .product_type_title {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+#product_section #product_section_wrap .product_type_card a .product_type_title:hover {
+    color: var(--purple-color);
+    font-family: MySemiBold;
+}
+
+#product_section #product_section_wrap .product_type_card a .product_type_img img {
+    border-radius: var(--half-border-radius);
+}
+
+#product_section #product_section_wrap .product_type_card a .product_type_img img {
+    width: 245px;
+    height: 280px;
+}
+
+#product_section #product_section_wrap .product_type_card:nth-child(1) a .product_type_img img {
+    width: 100px;
+    height: 200px;
+    padding: 40px 72.5px;
+}
+/* ************************************** /PRODUCT SECTION ************************************** */
+/* ====================================== /PRODUCT ====================================== */
