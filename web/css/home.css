@@ -1,0 +1,220 @@
+/* ====================================== CARDS ====================================== */
+#free_shoping_section {
+    width: 100%;
+    padding: 40px 0px;
+    background-color: var(--bg-color);
+    text-align: center;
+}
+
+#free_shoping_section #free_shoping_section_wrap {
+    width: 500px;
+    margin: 0 auto;
+}
+
+#free_shoping_section #free_shoping_section_wrap div {
+    display: inline;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+#free_shoping_section #free_shoping_section_wrap i {
+    padding: 0px 10px;
+    font-size: 25px;
+}
+
+#card_section {
+    padding: 70px 0px;
+}
+
+#card_wrap {
+    width: 1100px;
+    height: 240px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#card_wrap .card {
+    width: 510px;
+    height: 240px;
+    border-radius: var(--border-radius);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+#card_wrap #card1 {
+    position: absolute;
+    top: 0px;
+    left: 2.5px;
+    background-image: url(../Images/banner2.jpg);
+    filter:contrast(50%);
+    filter:brightness(50%);
+}
+
+#card_wrap #card2 {
+    position: absolute;
+    top: 0px;
+    right: 2.5px;
+    background-image: url(../Images/banner3.jpg);
+    filter:contrast(50%);
+    filter:brightness(50%);
+}
+
+#card_wrap .card_content_wrapper {
+    color: #fff;
+    font-family: MySemiBold;
+    font-size: 30px;
+}
+
+#card_wrap .card_content_wrapper a button {
+    background-color: transparent;
+    border: 1px solid #fff;
+    border-radius: var(--half-border-radius);
+    padding: 15px 40px;
+    font-family: MyLight;
+    font-size: 15px;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+#card_wrap .card_content_wrapper a {
+    text-decoration: none;
+    color: inherit;
+    font-family: MyLight;
+    font-size: 15px;
+}
+
+#card_wrap .card_con1 {
+    position: absolute;
+    top: 40px;
+    left: 50px;
+}
+
+#card_wrap .card_con2 {
+    position: absolute;
+    top: 40px;
+    left: 650px;
+}
+
+#card_wrap #card1:hover+.card_content_wrapper button {
+    background-color: var(--purple-color);
+    border: 1px solid var(--purple-color);
+}
+
+#card_wrap #card2:hover+.card_content_wrapper button {
+    background-color: var(--purple-color);
+    border: 1px solid var(--purple-color);
+}
+
+#card_wrap .card_content_wrapper:hover button {
+    background-color: var(--purple-color);
+    border: 1px solid var(--purple-color);
+}
+/* ====================================== /CARDS ====================================== */
+
+/* ====================================== VIDEO ====================================== */
+#product_video_section {
+    height: 420px;
+    padding: 10px 0px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#product_video_section #product_video_image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 400px;
+    background-image: url(../Images/banner5.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    filter: contrast(70%) brightness(70%);
+    z-index: -1;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
+#product_video_section #product_video_content {
+    width: 100%;
+    max-width: 1100px;
+    text-align: center;
+    position: relative;
+    padding: 40px;
+}
+
+#product_video_section #product_video_content #product_video_box1 {
+    color: #fff;
+    font-family: MyBold;
+    font-size: 30px;
+    width: 600px;
+    margin: 0 auto;
+}
+
+#product_video_section #product_video_content #product_video_box2 {
+    color: var(--purple-color);
+    font-size: 30px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: #fff;
+    margin-top: 40px;
+    padding: 23px 17px 17px 23px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#product_video_section #product_video_content #product_video_box2:hover {
+    font-size: 35px !important;
+    padding: 15px 12px 15px 18px;
+    background-color: var(--purple-color);
+    color: #fff;
+}
+
+#overlay {
+    width: 100%;
+    height: 600px;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    position: fixed;
+    top: 50px;
+    left: 0px;
+}
+
+#product_details {
+    width: 920px;
+    height: 450px;
+    border-radius: var(--border-radius);
+    background-color: transparent;
+    margin: 50px auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#product_details #cls {
+    width: 20px;
+    height: 20px;
+    background-color: rgba(182, 172, 172, 0.5);
+    border: 0px;
+    border-radius: var(--half-border-radius);
+    margin-left: 875px;
+    transition: all 0.3s;
+    color: #fff;
+}
+
+#product_details #cls:hover {
+    background-color: var(--purple-color);
+}
+
+#product_details #video_window {
+    width: 900px;
+    height: 400px;
+    padding: 0px 50px;
+    display: none;
+    overflow: hidden;
+    border-radius: var(--border-radius);
+    padding-left: 130px;
+}
+/* ====================================== /VIDEO ====================================== */
+

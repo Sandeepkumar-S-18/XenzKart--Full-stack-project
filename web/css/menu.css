@@ -296,9 +296,33 @@ header {
     background-color: var(--purple-color);
     border: 0px;
     border-radius: var(--half-border-radius);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#profile-wrapper #profile-div #profile-details .edit-btn:hover,input[type="submit"]:hover {
+    background-color: var(--dark-purple-color);
 }
 
 #profile-wrapper #profile-div #profile-details #msg {
     font-size: 10px;
+}
+
+#profile-wrapper #profile-div #profile-details #delete-btn {
+    background-color: rgb(218, 55, 55);
+    padding-top: 8px;
+    text-align: center;
+    height: 30px;
+    margin-top: 5px;
+    transition: all 0.3s;
+}
+
+#profile-wrapper #profile-div #profile-details #delete-btn:hover {
+    background-color: red;
+}
+
+#profile-wrapper #profile-div #profile-details #delete-btn a {
+    color: #fff;
+    font-size: 12px;
 }
 /*====================================== /PROFILE ======================================*/

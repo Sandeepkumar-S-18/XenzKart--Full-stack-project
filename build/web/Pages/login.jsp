@@ -17,7 +17,7 @@
     <body>
         <section id="wrapper">
             
-            <!--LOGIN FORM-->
+            <!-- ====================================== LOGIN FORM ====================================== -->
             <div id="login-box">
                 <div id="login-design" style="border-radius: 10px 0px 0px 10px;">
                     <div id="welcome-heading">Welcome Back!</div>
@@ -29,7 +29,7 @@
                         {
                             %>
                             <div id="signup-redirect">Don't have an account?</div>
-                            <a href="signup.jsp">Sign Up</a>
+                            <a href="signup.jsp" title="CREATE ACCOUNT">Sign Up</a>
                             <%
                         }
                     %>
@@ -38,8 +38,8 @@
                     <h1>LogIn to XenzKart</h1>
                     <div id="form-data">
                         <form action="../Login?user_type=<%= login %>" method="POST" autocomplete="off" onsubmit="return loginValidation()">
-                            <input id="login_email" type="email" name="user_email" value="" placeholder="Email" autofocus /> <br><br>
-                            <input id="login_pwd" type="password" name="user_pwd" value="" placeholder="Password" /> <br><br>
+                            <input id="login_email" type="email" name="user_email" value="" placeholder="Email" title="EMAIL" autofocus /> <br><br>
+                            <input id="login_pwd" type="password" name="user_pwd" value="" placeholder="Password" title="PASSWORD" /> <br><br>
                             <p id="msg"></p>
                             <%
                                 String errorMsg = request.getParameter("errorMsg");
@@ -49,12 +49,13 @@
                                 }
                             %>
                             <br>
-                            <input type="submit" value="LOGIN" />
+                            <input type="submit" value="LOGIN" title="LOGIN" />
                         </form>
                     </div>
                 </div>
             </div>
-            
+            <!-- ====================================== /LOGIN FORM ====================================== -->
+                            
         </section>
     </body>
 </html>

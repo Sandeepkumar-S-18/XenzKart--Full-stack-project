@@ -13,6 +13,7 @@
         
         <!--JS FILE-->
         <script src="../js/pageJS.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     </head>
     <body>
         <%! int id; String userType1, name, profileImag, email, address, password; long mobile; %>
@@ -56,7 +57,7 @@
                     <%
                         if(userType1.equals("user"))
                         {
-                            %><a href="../DeleteAccount">DELETE ACCOUNT</a><%
+                            %><div class="edit-btn fa fa-trash" id="delete-btn" ><a href="../DeleteAccount"> DELETE ACCOUNT</a></div><%
                         }
                     %>
                 </div>

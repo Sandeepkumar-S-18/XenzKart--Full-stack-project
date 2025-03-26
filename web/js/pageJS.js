@@ -117,6 +117,7 @@ function sendEmail()
 }
 /*====================================== /CONTACT ======================================*/
 
+/*====================================== PROFILE ======================================*/
 function enable() 
 {
     document.getElementById("profile_photo").hidden = false;
@@ -133,4 +134,17 @@ function enable()
             elements[i].style.border = "1px solid var(--purple-color)";
         }
     }
+}
+/*====================================== /PROFILE ======================================*/
+
+
+function playVideo()
+{
+    document.getElementById("overlay").style.display="block";
+    document.getElementById("video_window").style.display="block"
+}
+
+function cls()
+{
+    document.getElementById("overlay").style.display="none";
 }

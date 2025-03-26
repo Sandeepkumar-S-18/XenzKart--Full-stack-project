@@ -24,35 +24,35 @@
             %>
             <div id="MyHeader">
                 <nav id="navbar">
-                    <div class="logo"> <a href="home.jsp"><span>XENZ</span>KART</a> </div>
+                    <div class="logo" title="XenzKart"> <a href="home.jsp"><span>XENZ</span>KART</a> </div>
                     <div id="menu">
-                        <a href="home.jsp" class="active">HOME</a>
-                        <a href="about.jsp">ABOUT</a>
-                        <a href="product.jsp">PRODUCTS</a>
+                        <a href="home.jsp" class="active" title="HOME">HOME</a>
+                        <a href="about.jsp" title="ABOUT">ABOUT</a>
+                        <a href="product.jsp" title="PRODUCTS">PRODUCTS</a>
                         <%
                             if(userType.equals("admin"))
                             {
                                 %>
-                                <a href="manageOrders.jsp">MANAGE ORDERS</a>
+                                <a href="manageOrders.jsp" title="MANAGE ORDERS">MANAGE ORDERS</a>
                                 <%
                             }
                             else if(userType.equals("user"))
                             {
                                 %>
-                                <a href="contact.jsp">CONTACT</a>
+                                <a href="contact.jsp" title="CONTACT">CONTACT</a>
                                 <%
                             }
                         %>
                         <div> <input id="search_bar" type="search" value="" placeholder="Search"> </div>
-                        <button class="fas fa-search" id="search_btn" onclick="searchBar()"></button>
+                        <button class="fas fa-search" id="search_btn" onclick="searchBar()" title="SEARCH"></button>
                     </div>
                     <div class="actions">
-                        <a href="profile.jsp" class="btn"><i class="fas fa-user"></i>Profile</a>
+                        <a href="profile.jsp" class="btn" title="PROFILE"><i class="fas fa-user"></i>Profile</a>
                         <%
                             if(userType.equals("admin"))
                             {
                                 %>
-                                <a href="#" class="btn count_btn">
+                                <a href="#" class="btn count_btn" title="NOTIFICATION">
                                     <i class="fas fa-lock"></i> 
                                     <span id="count">0</span> Notification
                                 </a>
@@ -61,7 +61,7 @@
                             else if(userType.equals("user"))
                             {
                                 %>
-                                <a href="#" class="btn count_btn">
+                                <a href="#" class="btn count_btn" title="YOUR CART">
                                     <i class="fas fa-lock"></i> 
                                     <span id="count">0</span> Cart
                                 </a>
