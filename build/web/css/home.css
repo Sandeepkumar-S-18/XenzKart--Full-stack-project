@@ -281,12 +281,9 @@
 }
 
 #product_section #product_section_wrap .product_type_card a .product_type_img img {
-    border-radius: var(--half-border-radius);
-}
-
-#product_section #product_section_wrap .product_type_card a .product_type_img img {
     width: 245px;
     height: 280px;
+    border-radius: var(--half-border-radius);
 }
 
 #product_section #product_section_wrap .product_type_card:nth-child(1) a .product_type_img img {
