@@ -26,6 +26,7 @@ public class UpdateRecordServlet extends HttpServlet {
             int id = loginData.getId();
             String oldImagePath = loginData.getProfileImage();
             String oldEmail = loginData.getEmail();
+            String oldPwd = loginData.getPassword();
             String userType = loginData.getUserType();
             
             String saveDir = getServletContext().getRealPath("").replaceAll("build", "");
@@ -42,24 +43,28 @@ public class UpdateRecordServlet extends HttpServlet {
             
             String uploadedFileName = mpr.getFilesystemName("user_profile_photo");
             
+            String existingFilePath = "", newFileName = "", newFilePath = "";
             if (uploadedFileName == null || uploadedFileName.equals("")) 
             {
-                uploadedFileName = oldImagePath;
+                existingFilePath = folderPath + File.separator + oldImagePath;
+                newFileName = oldImagePath;
+                newFilePath = existingFilePath;
+            }
+            else
+            {
+                existingFilePath = folderPath + File.separator + uploadedFileName;
+                
+                int index = uploadedFileName.lastIndexOf(".");
+                String onlyFileName = uploadedFileName.substring(0,index);
+                String fileExtension = uploadedFileName.substring(index);
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_hhmmss");
+                String upload_time = sdf.format(new Date());
+
+                newFileName = onlyFileName + "_" + upload_time +fileExtension;
+                newFilePath = folderPath + File.separator + newFileName;
             }
             
-            String existingFilePath = folderPath + File.separator + uploadedFileName;
-            
             File f1 = new File(existingFilePath);
-            
-            int index = uploadedFileName.lastIndexOf(".");
-            
-            String onlyFileName = uploadedFileName.substring(0,index);
-            String fileExtension = uploadedFileName.substring(index);
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_hhmmss");
-            String upload_time = sdf.format(new Date());
-            
-            String newFileName = onlyFileName + "_" + upload_time +fileExtension;
-            String newFilePath = folderPath + File.separator + newFileName;
             
             File f2 = new File(newFilePath);
             f1.renameTo(f2);
@@ -72,7 +77,14 @@ public class UpdateRecordServlet extends HttpServlet {
             loginDetails.setEmail(oldEmail);
             loginDetails.setMobile(Long.parseLong(mpr.getParameter("user_mobile")));
             loginDetails.setAddress(mpr.getParameter("user_address"));
-            loginDetails.setPassword(mpr.getParameter("user_upd_pwd"));
+            if(mpr.getParameter("user_upd_pwd").equals(""))
+            {
+                loginDetails.setPassword(oldPwd);
+            }
+            else
+            {
+                loginDetails.setPassword(mpr.getParameter("user_upd_pwd"));
+            }
             
             session.setAttribute("loginDetails", loginDetails);
             

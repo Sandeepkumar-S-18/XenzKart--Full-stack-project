@@ -137,7 +137,7 @@ function enable()
 }
 /*====================================== /PROFILE ======================================*/
 
-
+/* ====================================== VIDEO ====================================== */
 function playVideo()
 {
     document.getElementById("overlay").style.display="block";
@@ -148,3 +148,41 @@ function cls()
 {
     document.getElementById("overlay").style.display="none";
 }
+/* ====================================== /VIDEO ====================================== */
+
+/* ====================================== PRODUCT ====================================== */
+let currentSection = 0;
+
+function showSection(index) 
+{
+    let sections = Array.from(document.querySelectorAll(".product_collection"));
+    for (let i = 0; i < sections.length; i++) 
+    {
+        sections[i].style.display = i === index ? "flex" : "none";
+    }
+}
+
+function nextSection() 
+{
+    let sections = document.querySelectorAll(".product_collection");
+    if (currentSection < sections.length - 1) 
+    {
+        currentSection++;
+        showSection(currentSection);
+    }
+}
+
+function prevSection() 
+{
+    if (currentSection > 0) 
+    {
+        currentSection--;
+        showSection(currentSection);
+    }
+}
+
+window.onload = function() 
+{
+    showSection(0);
+};
+/* ====================================== /PRODUCT ====================================== */

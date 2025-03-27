@@ -1,3 +1,6 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.MyJavaClass.ProductDataBean"%>
+<%@page import="com.MyDb.RetrievingProduct"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -7,10 +10,89 @@
         
         <!-- FAVICON -->
         <link rel="shortcut icon" href="../Images/favicon.png" type="image/x-icon">
+        
+        <!-- CSS FILE -->
+        <link rel="stylesheet" href="../css/product.css">
+        
+        <!--JS FILE-->
+        <script src="../js/pageJS.js"></script>
     </head>
     <body>
         <%@include file="menu.jsp" %>
         <%@include file="banner.html" %>
+        
+        <!-- ====================================== PRODUCT HEADER ====================================== -->
+        <section id="product_heading_section">
+            <div id="product_heading">
+                <div>Shop With Us</div>
+                <div>Handpicked Favourites just for you</div>
+            </div>
+        </section>
+        <!-- ====================================== /PRODUCT HEADER ====================================== -->
+        <section id="product_section">
+        <%
+            RetrievingProduct retrievingProduct = new RetrievingProduct();
+            ProductDataBean productDataBean = retrievingProduct.retrievingProductList();
+
+            ArrayList<ArrayList<ProductDataBean>> productList = productDataBean.getProductList();
+            
+            int count = 0;
+            int maxPerPage = 40;
+            int divIndex = 0;
+            
+            for (ArrayList<ProductDataBean> productGroup : productList) 
+            {
+                for (ProductDataBean product : productGroup) 
+                {
+                    if (count % maxPerPage == 0) 
+                    { 
+                        if (count != 0) 
+                        { %>
+                            </div> 
+                        <% }
+                        divIndex++;
+                        %>
+                        <div class="product_collection" id="section_<%= divIndex %>">
+                    <% }
+                    count++;
+                    %>
+                    <div class="product_item" id="<%= product.getProduct_id() %>">
+                        <div class="product_image_div">
+                            <img src="../Product_images/<%= product.getProduct_image() %>" alt="<%= product.getName() %>" class="product_image">
+                            <div class="product_image_btns">
+                                <div class="view_product_div">
+                                    <i class="fa fa-eye eye_btn" onclick="productDetailsPanel(<%= product.getProduct_id() %>)"></i>
+                                </div>
+                                <div class="add_to_cart_div">
+                                    <i class="add_to_cart" onclick="addProductToCart(${product[0]})">Add to Cart</i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product_name_div">
+                            <i class="product_name" onclick="productDetailsPanel(<%= product.getProduct_id() %>)"><%= product.getName() %></i>
+                        </div>
+                        <div class="product_price">
+                            <span><del>₹ <%= product.getPrice() %> /-</del></span> &nbsp;
+                            <span>₹ <%= product.getDiscount_price() %> /-</span>
+                        </div>
+                    </div>
+                    <%
+                }
+            }
+            if (count > 0) 
+            { %>
+                </div>
+            <% }
+            
+            if (count > maxPerPage) { %>
+            <div class="product_navigation">
+                <button onclick="prevSection()">Previous</button>
+                <button onclick="nextSection()">Next</button>
+            </div>
+        <% } %>
+
+        </section>
+        
         <%@include file="footer.html" %>
     </body>
 </html>
