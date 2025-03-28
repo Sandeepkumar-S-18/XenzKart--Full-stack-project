@@ -29,6 +29,8 @@
             </div>
         </section>
         <!-- ====================================== /PRODUCT HEADER ====================================== -->
+        
+        <!-- ====================================== PRODUCT CONTAINER ====================================== -->
         <section id="product_section">
         <%
             RetrievingProduct retrievingProduct = new RetrievingProduct();
@@ -44,11 +46,13 @@
             {
                 for (ProductDataBean product : productGroup) 
                 {
+                    String productArr = "["+ product.getProduct_id() + ", "+ "\"" + product.getName() + "\", "+ "\"" + product.getProduct_image() + "\", "+ "\"" + product.getDescription() + "\", "+ product.getPrice() + ", "+ product.getDiscount_price() + ", "+ product.getProduct_rating() + ", "+ product.getQuantity() + ", "+ "\"" + product.getCategory() + "\"]";
+
                     if (count % maxPerPage == 0) 
                     { 
                         if (count != 0) 
                         { %>
-                            </div> 
+                            </div>
                         <% }
                         divIndex++;
                         %>
@@ -61,15 +65,15 @@
                             <img src="../Product_images/<%= product.getProduct_image() %>" alt="<%= product.getName() %>" class="product_image">
                             <div class="product_image_btns">
                                 <div class="view_product_div">
-                                    <i class="fa fa-eye eye_btn" onclick="productDetailsPanel(<%= product.getProduct_id() %>)"></i>
+                                    <i class="fa fa-eye eye_btn" onclick='productDetailsPanel(<%= productArr %>)'></i>
                                 </div>
                                 <div class="add_to_cart_div">
-                                    <i class="add_to_cart" onclick="addProductToCart(${product[0]})">Add to Cart</i>
+                                    <a href="#" class="add_to_cart">Add to Cart</a>
                                 </div>
                             </div>
                         </div>
                         <div class="product_name_div">
-                            <i class="product_name" onclick="productDetailsPanel(<%= product.getProduct_id() %>)"><%= product.getName() %></i>
+                            <i class="product_name" onclick='productDetailsPanel(<%= productArr %>)'><%= product.getName() %></i>
                         </div>
                         <div class="product_price">
                             <span><del>₹ <%= product.getPrice() %> /-</del></span> &nbsp;
@@ -90,8 +94,36 @@
                 <button onclick="nextSection()">Next</button>
             </div>
         <% } %>
-
         </section>
+        <!-- ====================================== /PRODUCT CONTAINER ====================================== -->
+        
+        <!-- ====================================== PRODUCT VIEWER ====================================== -->
+        <div id="overlay">
+            <div id="product_details">
+		<button id="cls" onclick="cls()" title="CLOSE"> X </button>
+                <div id="product_details_wrapper">
+                    <div id="product_header">PRODUCT INFORMATION</div>
+                    <div id="product_picture_div" title="PRODUCT PICTURE">
+                        <img src="" alt="" />
+                    </div>
+                    <div id="product_details_div">
+                        <div id="product_name_detls" title="PRODUCT NAME"></div>
+                        <div id="product_category" title="PRODUCT CATEGORY"></div>
+                        <div id="product_rating_detls" title="PRODUCT RATING"></div>
+                        <div id="product_discription_detls" title="PRODUCT DISCRIPTION"></div>
+                        <div id="product_quantity" title="NUMBER OF PRODUCTS AVAILABLE"></div>
+                        <div>
+                            <span id="product_price_detls" title="PRODUCT PRICE"></span>
+                            <span id="product_discounted_price_detls" title="DISCOUNT PRICE"></span>
+                        </div>
+                        <div id="add_cart_btn">
+                            <a href="#" id="add_cart_btn_anchor">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ====================================== /PRODUCT VIEWER ====================================== -->
         
         <%@include file="footer.html" %>
     </body>

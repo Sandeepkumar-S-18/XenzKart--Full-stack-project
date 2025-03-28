@@ -1,4 +1,4 @@
-/*====================================== SEARCHBAR ======================================*/
+/* ====================================== SEARCHBAR ====================================== */
 function searchBar()
 {
     let x = document.getElementById('search_bar');
@@ -12,34 +12,9 @@ function searchBar()
         x.style.display = "none";
     }
 }
-/*====================================== /SEARCHBAR ======================================*/
+/* ====================================== /SEARCHBAR ====================================== */
 
-/*====================================== ACTIVE LINK ======================================*/
-window.onload = function () 
-{
-    var currentLocation = window.location.pathname.split("/").pop();
-
-    var menuLinks = document.getElementById("menu").getElementsByTagName("a");
-
-    for (var i = 0; i < menuLinks.length; i++)
-    {
-        menuLinks[i].className = menuLinks[i].className.replace("active", "");
-    }
-
-    for (var i = 0; i < menuLinks.length; i++) 
-    {
-        var linkHref = menuLinks[i].getAttribute("href").split("/").pop();
-
-        if (linkHref === currentLocation)
-        {
-            menuLinks[i].className += " active";
-            break;
-        }
-    }
-};
-/*====================================== /ACTIVE LINK ======================================*/
-
-/*====================================== SLIDER ======================================*/
+/* ====================================== SLIDER ====================================== */
 function startBannerSlideshow() 
 {
     setTimeout("changeBanner()", 5000);
@@ -89,9 +64,9 @@ document.addEventListener("DOMContentLoaded", function ()
 {
     startBannerSlideshow();
 });
-/*====================================== /SLIDER ======================================*/
+/* ====================================== /SLIDER ====================================== */
 
-/*====================================== CONTACT ======================================*/
+/* ====================================== CONTACT ====================================== */
 function sendEmail() 
 {
     let name = document.getElementById("user-name").value.trim();
@@ -115,9 +90,9 @@ function sendEmail()
 
     document.getElementById("submit-anchor").href = mailtoLink;
 }
-/*====================================== /CONTACT ======================================*/
+/* ====================================== /CONTACT ====================================== */
 
-/*====================================== PROFILE ======================================*/
+/* ====================================== PROFILE ====================================== */
 function enable() 
 {
     document.getElementById("profile_photo").hidden = false;
@@ -135,7 +110,7 @@ function enable()
         }
     }
 }
-/*====================================== /PROFILE ======================================*/
+/* ====================================== /PROFILE ====================================== */
 
 /* ====================================== VIDEO ====================================== */
 function playVideo()
@@ -181,8 +156,84 @@ function prevSection()
     }
 }
 
-window.onload = function() 
+function productDetailsPanel(productArr)
 {
+    document.getElementById("overlay").style.display = "block";
+    
+    let product_id = productArr[0];
+    let product_name = productArr[1];
+    let product_image = productArr[2];
+    let product_description = productArr[3];
+    let product_price = productArr[4];
+    let product_discount_price = productArr[5];
+    let product_rating = productArr[6];
+    let product_quantity = productArr[7];
+    let product_category = productArr[8];
+    
+    document.querySelector("#product_picture_div img").src = "../Product_images/"+product_image;
+    document.getElementById("product_name_detls").innerText = product_name;
+    document.getElementById("product_category").innerText = product_category;
+    document.getElementById("product_rating_detls").innerHTML = generateStarRating(product_rating);
+    document.getElementById("product_discription_detls").innerText = product_description;
+    if(product_quantity <= 0)
+    {
+        document.getElementById("product_quantity").innerText = `Out of stack.`;
+    }
+    else
+    {
+        document.getElementById("product_quantity").innerText = `Only ${product_quantity} product are available.`;
+    }
+    document.getElementById("product_price_detls").innerHTML = `<del>₹ ${product_price}</del>`;
+    document.getElementById("product_discounted_price_detls").innerText = `₹ ${product_discount_price}`;
+}
+
+function generateStarRating(rating)
+{
+    let starsHTML = "";
+    let fullStars = Math.floor(rating);
+    let halfStar = rating % 1 >= 0.5 ? 1 : 0;
+    let emptyStars = 5 - fullStars - halfStar;
+
+    for (let i = 0; i < fullStars; i++)
+    {
+        starsHTML += `<span class="fa fa-star"></span> `;
+    }
+    if (halfStar)
+    {
+        starsHTML += `<span class="fa fa-star-half-alt"></span> `;
+    }
+    for (let i = 0; i < emptyStars; i++)
+    {
+        starsHTML += `<span class="far fa-star"></span> `;
+    }
+
+    return starsHTML;
+}
+/* ====================================== /PRODUCT ====================================== */
+
+/* ====================================== ACTIVE LINK ====================================== */
+window.onload = function () 
+{
+    var currentLocation = window.location.pathname.split("/").pop();
+
+    var menuLinks = document.getElementById("menu").getElementsByTagName("a");
+
+    for (var i = 0; i < menuLinks.length; i++)
+    {
+        menuLinks[i].className = menuLinks[i].className.replace("active", "");
+    }
+
+    for (var i = 0; i < menuLinks.length; i++) 
+    {
+        var linkHref = menuLinks[i].getAttribute("href").split("/").pop();
+
+        if (linkHref === currentLocation)
+        {
+            menuLinks[i].className += " active";
+            break;
+        }
+    }
+    
     showSection(0);
 };
-/* ====================================== /PRODUCT ====================================== */
+/* ====================================== /ACTIVE LINK ====================================== */
