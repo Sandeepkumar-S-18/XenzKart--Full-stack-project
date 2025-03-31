@@ -137,22 +137,6 @@ header {
 #MyHeader #navbar .actions .btn:hover {
     background-color: var(--dark-purple-color);
 }
-
-#MyHeader #navbar .actions .count_btn{
-    position: relative;
-}
-
-#MyHeader #navbar .actions .count_btn #count{
-    background-color: #487eb0;
-    position: absolute;
-    padding: 0px 4px 4px 4px;
-    width: 13px;
-    height: 17px;
-    border-radius: 50%;
-    top: -2px;
-    left: -2px;
-    color: #fff;
-}
 /*====================================== /HEADER ======================================*/
 
 /*====================================== BANNER ======================================*/

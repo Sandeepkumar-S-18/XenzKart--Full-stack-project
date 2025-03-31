@@ -39,6 +39,7 @@
             ArrayList<ArrayList<ProductDataBean>> productList = productDataBean.getProductList();
             
             int count = 0;
+            int count1 = -1;
             int maxPerPage = 40;
             int divIndex = 0;
             
@@ -46,6 +47,7 @@
             {
                 for (ProductDataBean product : productGroup) 
                 {
+                    count1 += 1;
                     String productArr = "["+ product.getProduct_id() + ", "+ "\"" + product.getName() + "\", "+ "\"" + product.getProduct_image() + "\", "+ "\"" + product.getDescription() + "\", "+ product.getPrice() + ", "+ product.getDiscount_price() + ", "+ product.getProduct_rating() + ", "+ product.getQuantity() + ", "+ "\"" + product.getCategory() + "\"]";
 
                     if (count % maxPerPage == 0) 
@@ -68,7 +70,7 @@
                                     <i class="fa fa-eye eye_btn" onclick='productDetailsPanel(<%= productArr %>)'></i>
                                 </div>
                                 <div class="add_to_cart_div">
-                                    <a href="#" class="add_to_cart">Add to Cart</a>
+                                    <a href="../Cart?id=<%= count1 %>" class="add_to_cart">Add to Cart</a>
                                 </div>
                             </div>
                         </div>
@@ -117,7 +119,7 @@
                             <span id="product_discounted_price_detls" title="DISCOUNT PRICE"></span>
                         </div>
                         <div id="add_cart_btn">
-                            <a href="#" id="add_cart_btn_anchor">Add to Cart</a>
+                            <a href="../Cart?id=<%= count1 %>" id="add_cart_btn_anchor">Add to Cart</a>
                         </div>
                     </div>
                 </div>

@@ -52,18 +52,16 @@
                             if(userType.equals("admin"))
                             {
                                 %>
-                                <a href="#" class="btn count_btn" title="NOTIFICATION">
-                                    <i class="fas fa-lock"></i> 
-                                    <span id="count">0</span> Notification
+                                <a href="#" class="btn" title="NOTIFICATION">
+                                    <i class="fas fa-lock"></i>Notification
                                 </a>
                                 <%
                             }
                             else if(userType.equals("user"))
                             {
                                 %>
-                                <a href="#" class="btn count_btn" title="YOUR CART">
-                                    <i class="fas fa-lock"></i> 
-                                    <span id="count">0</span> Cart
+                                <a href="cart.jsp" class="btn" title="YOUR CART">
+                                    <i class="fas fa-lock"></i>Cart
                                 </a>
                                 <%
                             }

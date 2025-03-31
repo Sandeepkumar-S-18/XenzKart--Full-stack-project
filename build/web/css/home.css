@@ -1,3 +1,5 @@
+@import url(style.css);
+
 /* ====================================== CARDS ====================================== */
 #free_shoping_section {
     width: 100%;
@@ -261,6 +263,10 @@
     margin: 10px;
     border-radius: var(--border-radius);
     box-shadow: 0 25px 90px 0 grey;
+}
+
+#product_section #product_section_wrap .product_type_card:hover {
+    background-color: #E0E0E9;
 }
 
 #product_section #product_section_wrap .product_type_card a .product_type_img {

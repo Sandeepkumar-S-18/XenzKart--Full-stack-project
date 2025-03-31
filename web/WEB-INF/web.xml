@@ -16,6 +16,10 @@
         <servlet-name>DeleteAccountServlet</servlet-name>
         <servlet-class>com.MyServlets.DeleteAccountServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CartServlet</servlet-name>
+        <servlet-class>com.MyServlets.CartServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>DeleteAccountServlet</servlet-name>
         <url-pattern>/DeleteAccount</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CartServlet</servlet-name>
+        <url-pattern>/Cart</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
