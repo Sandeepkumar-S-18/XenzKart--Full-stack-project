@@ -6,6 +6,7 @@
     padding: 20px 0px;
 }
 
+/* ====================================== PRODUCT ====================================== */
 #header_section #header_div {
     width: 1100px;
     margin: 0 auto;
@@ -60,6 +61,7 @@
     box-shadow: 0 25px 90px 0 var(--font-color);
     border-radius: var(--half-border-radius);
     display: flex;
+    overflow: hidden;
     transition: all 0.3s;
 }
 
@@ -80,6 +82,7 @@
 }
 
 #cart_section #cart_wrapper .cart_div .cart_product_info .cart_product_name {
+    margin-top: 5px;
     font-family: MyBold;
     font-size: 20px;
     color: var(--purple-color);
@@ -89,3 +92,97 @@
     margin-top: 5px;
     font-size: 12px;
 }
+
+#cart_section #cart_wrapper .cart_div .cart_product_info .product_price {
+    width: 245px;
+    margin-top: 5px;
+    font-size: 13px;
+    font-weight: bolder;
+}
+
+#cart_section #cart_wrapper .cart_div .cart_product_info .product_price span:nth-child(1) {
+    color: var(--font-color);
+}
+
+#cart_section #cart_wrapper .cart_div .cart_product_info .product_price span:nth-child(2) {
+    color: var(--purple-color);
+    font-weight: bold;
+}
+
+#cart_section #cart_wrapper .cart_div .cart_product_info .product_available {
+    color: red;
+    font-size: 10px;
+    margin-top: 5px;
+}
+
+#cart_section #cart_wrapper .cart_div .cart_product_info .cart_product_qty {
+    margin-top: 10px;
+}
+
+#cart_section #cart_wrapper .cart_div .cart_product_info .cart_product_qty .product_qty_box {
+    outline: none;
+    width: 100px;
+    padding-left: 5px;
+}
+
+#cart_section #cart_wrapper .cart_div:hover .cart_product_info .cart_product_qty .product_qty_box {
+    background-color: #E0E0E9;
+    border: 1px solid #000;
+}
+
+#cart_section #cart_wrapper .cart_div .cart_product_info .cart_product_qty .place_order_btn {
+    width: 120px;
+    height: 30px;
+    margin-top: 5px;
+    color: #fff;
+    background-color: var(--purple-color);
+    border: 0px;
+    border-radius: var(--half-border-radius);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#cart_section #cart_wrapper .cart_div .cart_product_info .cart_product_qty .place_order_btn:hover {
+    background-color: var(--dark-purple-color);
+}
+/* ====================================== /PRODUCT ====================================== */
+
+/* ====================================== CHECKOUT ====================================== */
+#checkout_section {
+    width: 100%;
+    background-color: var(--bg-color);
+    margin-top: 40px;
+    padding: 20px 0px;
+}
+
+#checkout_wrap {
+    width: 580px;
+    height: 380px;
+    margin: 0 auto;
+    border-radius: var(--border-radius);
+    box-shadow: 0 25px 30px 0 var(--font-color);
+    padding: 10px;
+}
+
+#checkout_wrap #payment_heading {
+    font-size: 30px;
+    font-family: MyBold;
+    text-align: center;
+    color: var(--purple-color);
+    padding-bottom: 10px;
+}
+
+#checkout_wrap #payment_table table {
+    border: 1px solid #000;
+    width: 580px;
+}
+
+#checkout_wrap #payment_table table tr {
+    font-size: 12px;
+}
+
+
+
+
+
+/* ====================================== /CHECKOUT ====================================== */

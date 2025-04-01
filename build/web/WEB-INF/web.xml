@@ -20,6 +20,10 @@
         <servlet-name>CartServlet</servlet-name>
         <servlet-class>com.MyServlets.CartServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>PlaceOrderServlet</servlet-name>
+        <servlet-class>com.MyServlets.PlaceOrderServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>CartServlet</servlet-name>
         <url-pattern>/Cart</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PlaceOrderServlet</servlet-name>
+        <url-pattern>/PlaceOrder</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
