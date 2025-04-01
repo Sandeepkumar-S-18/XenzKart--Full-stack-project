@@ -211,6 +211,42 @@ function generateStarRating(rating)
 }
 /* ====================================== /PRODUCT ====================================== */
 
+/* ====================================== PAYMENT ====================================== */
+function payment(buyer_id, order_id, product_id, product_name, product_price) 
+{
+    document.getElementById("checkout_section").style.display = "block";
+    let p_id = `product_qty_box_` + product_id;
+    let qtyBox = document.getElementById(p_id);
+    
+    let qty = parseInt(qtyBox.value);  
+    let tableBody = document.getElementById("product_list");
+    
+    let newRow = tableBody.insertRow();
+    newRow.setAttribute("align", "center");
+
+    let totalPrice = product_price * qty;  
+
+    newRow.innerHTML = `
+        <td>${order_id}</td>
+        <td>${product_name}</td>
+        <td>${qty}</td>
+        <td>${product_price}</td>
+        <td class='totalAmountPerProduct'>${totalPrice}</td>
+        <td><input type="checkbox" value="${order_id}, ${product_id}, ${buyer_id}" /></td>
+    `;
+    
+    let elements = document.getElementsByClassName("totalAmountPerProduct");
+    let totalAmount = 0;
+
+    for (let i = 0; i < elements.length; i++) 
+    {
+        totalAmount += parseFloat(elements[i].innerHTML) || 0;
+    }
+
+    document.getElementById("total_amount").innerHTML = totalAmount.toFixed(2);
+}
+/* ====================================== PAYMENT ====================================== */
+
 /* ====================================== ACTIVE LINK ====================================== */
 window.onload = function () 
 {
@@ -235,5 +271,13 @@ window.onload = function ()
     }
     
     showSection(0);
+    
+    let element1 = document.getElementsByClassName("cart_div");
+    let count1 = 0;
+    for (let i = 0; i < element1.length; i++) 
+    {
+        count1 += 1;
+    }
+    document.getElementById("heading1").innerHTML = `YOUR CART (${count1})`;
 };
 /* ====================================== /ACTIVE LINK ====================================== */

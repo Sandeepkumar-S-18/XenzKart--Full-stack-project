@@ -14,13 +14,16 @@
         
         <!-- CSS FILE -->
         <link rel="stylesheet" href="../css/cart.css">
+        
+        <!--JS FILE-->
+        <script src="../js/pageJS.js"></script>
     </head>
     <body>
         <%@include file="menu.jsp" %>
         
         <section id="header_section">
             <div id="header_div">
-                <div id="heading1">YOUR CART</div>
+                <div id="heading1"></div>
                 <div id="heading2"><a href="#">Your orders</a></div>
             </div>
         </section>
@@ -56,8 +59,10 @@
                                     </div>
                                     <div class="product_available">Only <%= product.getQuantity() %> product are available.</div>
                                     <div class="cart_product_qty">
-                                        Quantity : <input class="product_qty_box" id="product_qty_box_<%= product.getProduct_id() %>" type="number" value="" name="product_qty" title="ENTER THE REQUIREMENT" />
-                                        <input class="place_order_btn" type="button" value="PLACE ORDER" />
+                                        Quantity : <input class="product_qty_box" id="product_qty_box_<%= product.getProduct_id() %>" type="number" value="1" name="product_qty" title="ENTER THE REQUIREMENT" />
+                                        <a href="#checkout_section">
+                                            <input class="place_order_btn" type="button" value="PLACE ORDER" onclick="payment(<%= id %>, <%= product.getOrder_id() %>,<%= product.getProduct_id() %>, '<%= product.getName() %>', <%= product.getDiscount_price() %>)" />
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -72,30 +77,23 @@
             <div id="checkout_wrap">
                 <div id="payment_heading">PAYMENT</div>
                 <div id="payment_table">
+                    <form action="../PlaceOrder" method="POST" >
                     <table cellspacing="0px" frame="box" rules="rows">
-                        <tr>
-                            <th>Sl No.</th>
+                        <tr height="40px">
                             <th>Order ID</th>
                             <th>Product name</th>
                             <th>Quantity</th>
                             <th>Product price</th>
+                            <th>Total price</th>
                             <th>Confirm order</th>
                         </tr>
-                        <div class="product_list">
-                            <tr align="center">
-                                <td>Sl No.</td>
-                                <td>Order ID</td>
-                                <td>Product name</td>
-                                <td>Quantity</td>
-                                <td>Product price</td>
-                                <td>Confirm order</td>
-                            </tr>
-                        </div>
-                        <tr>
-                            <th colspan="4">iujhgo</th>
-                            <th colspan="2">jhg</th>
+                        <tbody id="product_list"></tbody>
+                        <tr height="30px">
+                            <th colspan="4">Total : </th>
+                            <th colspan="2" id="total_amount"></th>
                         </tr>
                     </table>
+                    </form>
                 </div>
             </div>
         </section>

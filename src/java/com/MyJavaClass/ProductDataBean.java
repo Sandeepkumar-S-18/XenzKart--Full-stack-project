@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class ProductDataBean 
 {
-    private int product_id, quantity;
+    private int product_id, quantity, order_id;
     private String name, product_image, description, category, created_at, updated_at, status;
     private double price, discount_price, product_rating;
 
@@ -44,6 +44,14 @@ public class ProductDataBean
     public void setQuantity(int quantity) 
     {
         this.quantity = quantity;
+    }
+
+    public int getOrder_id() {
+        return order_id;
+    }
+
+    public void setOrder_id(int order_id) {
+        this.order_id = order_id;
     }
 
     public String getName() 

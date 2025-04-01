@@ -149,6 +149,7 @@
 
 /* ====================================== CHECKOUT ====================================== */
 #checkout_section {
+    display: none;
     width: 100%;
     background-color: var(--bg-color);
     margin-top: 40px;
@@ -157,7 +158,6 @@
 
 #checkout_wrap {
     width: 580px;
-    height: 380px;
     margin: 0 auto;
     border-radius: var(--border-radius);
     box-shadow: 0 25px 30px 0 var(--font-color);
@@ -180,9 +180,4 @@
 #checkout_wrap #payment_table table tr {
     font-size: 12px;
 }
-
-
-
-
-
 /* ====================================== /CHECKOUT ====================================== */

@@ -67,7 +67,8 @@ public class AddToCart
                 ResultSet rs2 = ps2.executeQuery();
                 
                 while(rs2.next()) 
-                {                    
+                {
+                    product.setOrder_id(rs1.getInt("order_id"));
                     product.setProduct_id(rs2.getInt("product_id"));
                     product.setName(rs2.getString("name"));
                     product.setProduct_image(rs2.getString("product_image"));
