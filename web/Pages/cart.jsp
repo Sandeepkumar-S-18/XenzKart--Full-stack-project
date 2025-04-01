@@ -60,9 +60,8 @@
                                     <div class="product_available">Only <%= product.getQuantity() %> product are available.</div>
                                     <div class="cart_product_qty">
                                         Quantity : <input class="product_qty_box" id="product_qty_box_<%= product.getProduct_id() %>" type="number" value="1" name="product_qty" title="ENTER THE REQUIREMENT" />
-                                        <a href="#checkout_section">
-                                            <input class="place_order_btn" type="button" value="PLACE ORDER" onclick="payment(<%= id %>, <%= product.getOrder_id() %>,<%= product.getProduct_id() %>, '<%= product.getName() %>', <%= product.getDiscount_price() %>)" />
-                                        </a>
+                                        <input class="place_order_btn" type="button" value="PLACE ORDER" title="PLACE ORDER" onclick="payment(<%= product.getOrder_id() %>,<%= product.getProduct_id() %>, '<%= product.getName() %>', <%= product.getDiscount_price() %>)" />
+                                        <div class="remove_product" title="REMOVE PRODUCT FROM CART"><a href="../RemoveCartProduct?order=<%= product.getOrder_id() %>">REMOVE</a></div>
                                     </div>
                                 </div>
                             </div>
@@ -85,12 +84,15 @@
                             <th>Quantity</th>
                             <th>Product price</th>
                             <th>Total price</th>
-                            <th>Confirm order</th>
+                            <th></th>
                         </tr>
                         <tbody id="product_list"></tbody>
                         <tr height="30px">
                             <th colspan="4">Total : </th>
                             <th colspan="2" id="total_amount"></th>
+                        </tr>
+                        <tr height="40px">
+                            <button id="confirm_payment" type="submit">CONFIRM</button>
                         </tr>
                     </table>
                     </form>

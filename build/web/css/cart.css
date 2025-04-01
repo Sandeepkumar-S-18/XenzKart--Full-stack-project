@@ -145,6 +145,28 @@
 #cart_section #cart_wrapper .cart_div .cart_product_info .cart_product_qty .place_order_btn:hover {
     background-color: var(--dark-purple-color);
 }
+
+#cart_section #cart_wrapper .cart_div .cart_product_info .cart_product_qty .remove_product {
+    display: inline-block;
+    background-color: rgb(218, 55, 55);
+    width: 120px;
+    height: 27px;
+    margin-top: 5px;
+    padding-top: 3px;
+    border: 0px;
+    text-align: center;
+    border-radius: var(--half-border-radius);
+    transition: all 0.3s;
+}
+
+#cart_section #cart_wrapper .cart_div .cart_product_info .cart_product_qty .remove_product:hover {
+    background-color: red;
+}
+
+#cart_section #cart_wrapper .cart_div .cart_product_info .cart_product_qty .remove_product a {
+    color: #fff;
+    font-size: 14px;
+}
 /* ====================================== /PRODUCT ====================================== */
 
 /* ====================================== CHECKOUT ====================================== */
@@ -179,5 +201,21 @@
 
 #checkout_wrap #payment_table table tr {
     font-size: 12px;
+}
+
+.remove_item {
+    color: var(--purple-color);
+    outline: none;
+    background-color: transparent;
+    border: 0px;
+    transition: all 0.3s;
+}
+
+.remove_item:hover {
+    color: red;
+}
+
+#confirm_payment {
+    height: 30px;
 }
 /* ====================================== /CHECKOUT ====================================== */

@@ -212,38 +212,58 @@ function generateStarRating(rating)
 /* ====================================== /PRODUCT ====================================== */
 
 /* ====================================== PAYMENT ====================================== */
-function payment(buyer_id, order_id, product_id, product_name, product_price) 
+function payment(order_id, product_id, product_name, product_price) 
 {
     document.getElementById("checkout_section").style.display = "block";
     let p_id = `product_qty_box_` + product_id;
     let qtyBox = document.getElementById(p_id);
-    
+
     let qty = parseInt(qtyBox.value);  
     let tableBody = document.getElementById("product_list");
-    
+
     let newRow = tableBody.insertRow();
     newRow.setAttribute("align", "center");
-
+    newRow.setAttribute("id", `order_${order_id}`);
+    
     let totalPrice = product_price * qty;  
 
     newRow.innerHTML = `
         <td>${order_id}</td>
         <td>${product_name}</td>
         <td>${qty}</td>
-        <td>${product_price}</td>
-        <td class='totalAmountPerProduct'>${totalPrice}</td>
-        <td><input type="checkbox" value="${order_id}, ${product_id}, ${buyer_id}" /></td>
+        <td>₹${product_price}</td>
+        <td class='totalAmountPerProduct'>₹${totalPrice}</td>
+        <td> 
+            <button class="remove_item fad fa-trash" onclick="removeItemFromPayment(${order_id})"></button> 
+            <input type="checkbox" value="${order_id}" checked hidden />
+        </td>
     `;
-    
+
+    updateTotalAmount();
+}
+
+function removeItemFromPayment(order_id) 
+{
+    let row = document.getElementById(`order_${order_id}`);
+    if(row) 
+    {
+        row.remove();
+        updateTotalAmount();
+    }
+}
+
+function updateTotalAmount() 
+{
     let elements = document.getElementsByClassName("totalAmountPerProduct");
     let totalAmount = 0;
 
-    for (let i = 0; i < elements.length; i++) 
+    for(let i = 0; i < elements.length; i++) 
     {
-        totalAmount += parseFloat(elements[i].innerHTML) || 0;
+        let amountText = elements[i].innerHTML.replace("₹", "").trim();
+        totalAmount += parseFloat(amountText) || 0;
     }
 
-    document.getElementById("total_amount").innerHTML = totalAmount.toFixed(2);
+    document.getElementById("total_amount").innerHTML = `₹${totalAmount.toFixed(2)}`;
 }
 /* ====================================== PAYMENT ====================================== */
 

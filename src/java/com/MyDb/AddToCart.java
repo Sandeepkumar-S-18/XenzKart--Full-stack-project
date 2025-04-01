@@ -92,4 +92,28 @@ public class AddToCart
         }
         return productDataBean;
     }
+    
+    public boolean removeCartProduct(int order_id)
+    {
+        int i = 0;
+        try 
+        {
+            PreparedStatement ps1 = con.prepareStatement("delete from xenzkart_orders where order_id=?");
+            ps1.setInt(1, order_id);
+            i = ps1.executeUpdate();
+        } 
+        catch (SQLException ex) 
+        {
+            Logger.getLogger(AddToCart.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        if(i > 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }
