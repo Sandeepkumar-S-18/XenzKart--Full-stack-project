@@ -1,5 +1,6 @@
 package com.MyServlets;
 
+import com.MyDb.AddToCart;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -14,6 +15,34 @@ public class PlaceOrderServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             
+            String[] orderIdsStr = request.getParameterValues("orderIds"); 
+            int[] orderIds = new int[orderIdsStr.length]; 
+            for(int i = 0; i < orderIdsStr.length; i++) 
+            {
+                orderIds[i] = Integer.parseInt(orderIdsStr[i]);
+            }
+            
+            String[] quantityStrArr = request.getParameterValues("quantity");
+            int[] quantityArr = new int[quantityStrArr.length];
+            for(int i = 0; i < quantityStrArr.length; i++) 
+            {
+                quantityArr[i] = Integer.parseInt(quantityStrArr[i]);
+            }
+            
+            String[] totalProductPriceStr = request.getParameterValues("totalProductPrice");
+            double[] totalProductPrice = new double[totalProductPriceStr.length];
+            for(int i = 0; i < totalProductPriceStr.length; i++)
+            {
+                totalProductPrice[i] = Double.parseDouble(totalProductPriceStr[i]);
+            }
+            
+            String action = request.getParameter("action");
+            AddToCart placeOrder = new AddToCart();
+            
+            if(placeOrder.placeOrder(orderIds, quantityArr, totalProductPrice, action))
+            {
+                response.sendRedirect("Pages/yourOrder.jsp");
+            }
         }
     }
 

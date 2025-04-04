@@ -14,13 +14,32 @@ public class RemoveCartProductServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            int order = Integer.parseInt(request.getParameter("order"));
+            int order = Integer.parseInt(request.getParameter("orderId"));
+            String action = request.getParameter("action");
             
             AddToCart removeCartProduct = new AddToCart();
             
-            if(removeCartProduct.removeCartProduct(order))
+            if(action.equals("removeFromCart"))
             {
-                response.sendRedirect("Pages/cart.jsp");
+                if(removeCartProduct.removeCartProduct(order, action))
+                {
+                    response.sendRedirect("Pages/cart.jsp");
+                }
+                else
+                {
+                    response.sendRedirect("Pages/cart.jsp");
+                }
+            }
+            else if(action.equals("cancelOrder"))
+            {
+                if(removeCartProduct.removeCartProduct(order, action))
+                {
+                    response.sendRedirect("Pages/yourOrder.jsp");
+                }
+                else
+                {
+                    response.sendRedirect("Pages/yourOrder.jsp");
+                }
             }
         }
     }

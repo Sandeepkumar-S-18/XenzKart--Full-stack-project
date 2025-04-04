@@ -19,16 +19,6 @@ public class UpdateOrNewProductServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             
-            String msg1 = request.getParameter("msg1");
-            String product_id = request.getParameter("productId1");
-            int id = 0;
-            if(product_id != null && !product_id.equals(""))
-            {
-                id = Integer.parseInt(product_id);
-            }
-            
-            String oldImagePath = request.getParameter("old_image");
-            
             String saveDir = getServletContext().getRealPath("").replaceAll("build", "");
             String folderName = "Product_images";
             String folderPath = saveDir + File.separator + folderName;
@@ -40,6 +30,17 @@ public class UpdateOrNewProductServlet extends HttpServlet {
             }
             
             MultipartRequest mpr = new MultipartRequest(request, folderPath, 20 * 1024 * 1024);
+            
+            String msg1 = mpr.getParameter("msg1");
+            
+            String product_id = mpr.getParameter("productId1");
+            int id = 0;
+            if(product_id != null && !product_id.equals(""))
+            {
+                id = Integer.parseInt(product_id);
+            }
+            
+            String oldImagePath = mpr.getParameter("old_image");
             
             String productName = mpr.getParameter("update_product_name");
             String productDescription = mpr.getParameter("update_product_description");
@@ -91,7 +92,7 @@ public class UpdateOrNewProductServlet extends HttpServlet {
             
             if(rp.updateOrAddProduct(session))
             {
-                out.println("add");
+                response.sendRedirect("Pages/product.jsp");
             }
         }
     }

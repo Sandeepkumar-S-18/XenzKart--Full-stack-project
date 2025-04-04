@@ -24,7 +24,7 @@
         <section id="header_section">
             <div id="header_div">
                 <div id="heading1"></div>
-                <div id="heading2"><a href="#">Your orders</a></div>
+                <div id="heading2"><a href="yourOrder.jsp">Your orders</a></div>
             </div>
         </section>
         
@@ -35,7 +35,7 @@
                     int id = loginData.getId();
                     
                     AddToCart retrievingProduct = new AddToCart();
-                    ProductDataBean productDataBean = retrievingProduct.retrievingCartProductList(id);
+                    ProductDataBean productDataBean = retrievingProduct.retrievingCartProductList(id, "cart");
 
                     ArrayList<ArrayList<ProductDataBean>> productList = productDataBean.getProductList();
                     
@@ -68,7 +68,7 @@
                                     <div class="cart_product_qty">
                                         Quantity : <input class="product_qty_box" id="product_qty_box_<%= product_id %>" type="number" value="1" name="product_qty" min="1" max="<%= product_quantity %>" title="ENTER THE REQUIREMENT" />
                                         <input class="place_order_btn" type="button" value="PLACE ORDER" title="PLACE ORDER" onclick="payment(<%= order_id %>,<%= product_id %>, '<%= product_name %>', <%= product_discount_price %>)" />
-                                        <div class="remove_product" title="REMOVE PRODUCT FROM CART"><a href="../RemoveCartProduct?order=<%= order_id %>">REMOVE</a></div>
+                                        <div class="remove_product" title="REMOVE PRODUCT FROM CART"><a href="../RemoveCartProduct?orderId=<%= order_id %>&action=removeFromCart">REMOVE</a></div>
                                     </div>
                                 </div>
                             </div>
@@ -83,7 +83,7 @@
             <div id="checkout_wrap">
                 <div id="payment_heading" title="YOUR BILL">PAYMENT</div>
                 <div id="payment_table">
-                    <form action="../PlaceOrder" method="POST" >
+                    <form action="../PlaceOrder?action=placeOrder" method="POST" >
                         <table cellspacing="0px" frame="below" rules="rows">
                             <tr height="40px">
                                 <th title="ORDER ID">Order ID</th>

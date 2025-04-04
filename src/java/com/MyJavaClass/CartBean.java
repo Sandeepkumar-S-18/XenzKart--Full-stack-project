@@ -2,10 +2,8 @@ package com.MyJavaClass;
 
 public class CartBean 
 {
-    private int buyer_id;
-    private int product_id;
-    private int quantity;
-    private double total_price;
+    private int buyer_id, product_id, quantity, number_of_product_order;
+    private double product_price, total_price;
     private String status;
     private String order_date;
     private String delivery_date;
@@ -43,6 +41,26 @@ public class CartBean
     public void setQuantity(int quantity) 
     {
         this.quantity = quantity;
+    }
+    
+    public int getNumber_of_product_order() 
+    {
+        return number_of_product_order;
+    }
+
+    public void setNumber_of_product_order(int number_of_product_order) 
+    {
+        this.number_of_product_order = number_of_product_order;
+    }
+    
+    public double getProduct_price() 
+    {
+        return product_price;
+    }
+
+    public void setProduct_price(double product_price) 
+    {
+        this.product_price = product_price;
     }
 
     public double getTotal_price() 

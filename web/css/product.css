@@ -331,6 +331,8 @@
 
 /* PRODUCT DISCRIPTION */
 #product_details #product_details_wrapper #product_details_div #product_discription_detls,#product_category {
+    width: 400px;
+    height: auto;
     text-align: justify;
     font-size: 18px;
     line-height: 1.2;
@@ -343,11 +345,6 @@
 }
 
 /* PRODUCT PRICE */
-#product_details #product_details_wrapper #product_details_div div:nth-child(4) {
-    height: 50px;
-    padding-top: 20px;
-}
-
 #product_details #product_details_wrapper #product_details_div div #product_discounted_price_detls {
     color: var(--purple-color);
 }

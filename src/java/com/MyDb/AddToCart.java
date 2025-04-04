@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 public class AddToCart 
 {
     Connection con = DbConnector.connect();
+    ResultSet resultSet1;
     
     public boolean productAddedToCart(HttpSession session)
     {
@@ -24,11 +25,12 @@ public class AddToCart
         int i = 0;
         try 
         {
-            PreparedStatement ps1 = con.prepareStatement("insert into xenzkart_orders(buyer_id, product_id, quantity, total_price, order_date) values(?,?,?,?,now())");
+            PreparedStatement ps1 = con.prepareStatement("insert into xenzkart_orders(buyer_id, product_id, quantity, product_price, total_price, order_date) values(?,?,?,?,?,now())");
             ps1.setInt(1, buyer_id);
             ps1.setInt(2, product_id);
             ps1.setInt(3, quantity);
             ps1.setDouble(4, total_price);
+            ps1.setDouble(5, total_price);
             
             i = ps1.executeUpdate();
         } 
@@ -47,20 +49,33 @@ public class AddToCart
         }
     }
     
-    public ProductDataBean retrievingCartProductList(int buyer_id)
+    public ProductDataBean retrievingCartProductList(int buyer_id, String type)
     {
         ProductDataBean productDataBean = new ProductDataBean();
         
         try 
         {
-            PreparedStatement ps1 = con.prepareStatement("select * from xenzkart_orders where buyer_id=?");
-            ps1.setInt(1, buyer_id);
-            ResultSet rs1 = ps1.executeQuery();
+            String sqlQuery = "";
             
-            while (rs1.next())
+            if(type.equals("cart"))
+            {
+                sqlQuery = "select * from xenzkart_orders where buyer_id=? and status='cart'";
+                PreparedStatement ps1 = con.prepareStatement(sqlQuery);
+                ps1.setInt(1, buyer_id);
+                resultSet1 = ps1.executeQuery();
+            }
+            else if(type.equals("order placed"))
+            {
+                sqlQuery = "select * from xenzkart_orders where buyer_id=? and not status='cart'";
+                PreparedStatement ps1 = con.prepareStatement(sqlQuery);
+                ps1.setInt(1, buyer_id);
+                resultSet1 = ps1.executeQuery();
+            }
+            
+            while (resultSet1.next())
             {
                 ProductDataBean product = new ProductDataBean();
-                int product_id = rs1.getInt("product_id");
+                int product_id = resultSet1.getInt("product_id");
                 
                 PreparedStatement ps2 = con.prepareStatement("select * from xenzkart_product where product_id=?");
                 ps2.setInt(1, product_id);
@@ -68,7 +83,9 @@ public class AddToCart
                 
                 while(rs2.next()) 
                 {
-                    product.setOrder_id(rs1.getInt("order_id"));
+                    product.setOrder_id(resultSet1.getInt("order_id"));
+                    product.setNumber_of_product_order(resultSet1.getInt("quantity"));
+                    product.setStatus(resultSet1.getString("status"));
                     product.setProduct_id(rs2.getInt("product_id"));
                     product.setName(rs2.getString("name"));
                     product.setProduct_image(rs2.getString("product_image"));
@@ -93,12 +110,22 @@ public class AddToCart
         return productDataBean;
     }
     
-    public boolean removeCartProduct(int order_id)
+    public boolean removeCartProduct(int order_id, String message)
     {
         int i = 0;
         try 
         {
-            PreparedStatement ps1 = con.prepareStatement("delete from xenzkart_orders where order_id=?");
+            String sqlQuery = "";
+            if(message.equals("removeFromCart"))
+            {
+                sqlQuery = "delete from xenzkart_orders where order_id=? and status='cart'";
+            }
+            else if(message.equals("cancelOrder"))
+            {
+                sqlQuery = "delete from xenzkart_orders where order_id=? and status='order placed'";
+            }
+            
+            PreparedStatement ps1 = con.prepareStatement(sqlQuery);
             ps1.setInt(1, order_id);
             i = ps1.executeUpdate();
         } 
@@ -115,5 +142,40 @@ public class AddToCart
         {
             return false;
         }
+    }
+    
+    public boolean placeOrder(int[] orderIds, int[] quantityArr,double[] totalProductPrice, String message)
+    {
+        String sqlQuery = "";
+        try 
+        {
+            if(message.equals("placeOrder"))
+            {
+                sqlQuery = "update xenzkart_orders set quantity=?, total_price=?, status='order placed', order_date=now() where order_id=?";
+            }
+            
+            PreparedStatement ps1 = con.prepareStatement(sqlQuery);
+            
+            for (int i = 0; i < orderIds.length; i++)
+            {
+                int orderId = orderIds[i];
+                int quantity = quantityArr[i];
+                double totalPrice = totalProductPrice[i];
+                
+                ps1.setInt(1, quantity);
+                ps1.setDouble(2, totalPrice);
+                ps1.setInt(3, orderId);
+                ps1.addBatch();
+            }
+            
+            int[] updateCounts = ps1.executeBatch();
+            return updateCounts.length == orderIds.length;
+            
+        } 
+        catch (SQLException ex) 
+        {
+            Logger.getLogger(AddToCart.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
     }
 }

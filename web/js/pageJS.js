@@ -294,17 +294,23 @@ function payment(order_id, product_id, product_name, product_price)
     newRow.setAttribute("align", "center");
     newRow.setAttribute("id", `order_${order_id}`);
     
-    let totalPrice = product_price * qty;  
+    let totalPrice = (product_price * qty).toFixed(2);  
 
     newRow.innerHTML = `
         <td>${order_id}</td>
         <td>${product_name}</td>
-        <td>${qty}</td>
+        <td>
+            ${qty}
+            <input type="checkbox" name="quantity" value="${qty}" checked hidden />
+        </td>
         <td>₹${product_price}</td>
-        <td class='totalAmountPerProduct'>₹${totalPrice}</td>
+        <td class='totalAmountPerProduct'>
+            ₹${totalPrice}
+            <input type="checkbox" name="totalProductPrice" value="${totalPrice}" checked hidden />
+        </td>
         <td> 
             <button class="remove_item fad fa-trash" onclick="removeItemFromPayment(${order_id})"></button> 
-            <input type="checkbox" value="${order_id}" checked hidden />
+            <input type="checkbox" name="orderIds" value="${order_id}" checked hidden />
         </td>
     `;
 
@@ -368,5 +374,6 @@ window.onload = function ()
         count1 += 1;
     }
     document.getElementById("heading1").innerHTML = `YOUR CART (${count1})`;
+    document.getElementById("heading3").innerHTML = `YOUR ORDERS (${count1})`;
 };
 /* ====================================== /ACTIVE LINK ====================================== */
