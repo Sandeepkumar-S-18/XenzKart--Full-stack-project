@@ -159,8 +159,9 @@ function prevSection()
 function productDetailsPanel(productArr)
 {
     document.getElementById("overlay").style.display = "block";
+    document.getElementById("product_details_wrapper").style.display = "block";
+    document.getElementById("add_and_update_product").style.display = "none";
     
-    let product_id = productArr[0];
     let product_name = productArr[1];
     let product_image = productArr[2];
     let product_description = productArr[3];
@@ -171,20 +172,20 @@ function productDetailsPanel(productArr)
     let product_category = productArr[8];
     
     document.querySelector("#product_picture_div img").src = "../Product_images/"+product_image;
-    document.getElementById("product_name_detls").innerText = product_name;
-    document.getElementById("product_category").innerText = product_category;
+    document.getElementById("product_name_detls").innerHTML = product_name;
+    document.getElementById("product_category").innerHTML = product_category;
     document.getElementById("product_rating_detls").innerHTML = generateStarRating(product_rating);
-    document.getElementById("product_discription_detls").innerText = product_description;
+    document.getElementById("product_discription_detls").innerHTML = product_description;
     if(product_quantity <= 0)
     {
-        document.getElementById("product_quantity").innerText = `Out of stack.`;
+        document.getElementById("product_quantity").innerHTML = `Out of stack.`;
     }
     else
     {
-        document.getElementById("product_quantity").innerText = `Only ${product_quantity} product are available.`;
+        document.getElementById("product_quantity").innerHTML = `Only ${product_quantity} product are available.`;
     }
     document.getElementById("product_price_detls").innerHTML = `<del>₹ ${product_price}</del>`;
-    document.getElementById("product_discounted_price_detls").innerText = `₹ ${product_discount_price}`;
+    document.getElementById("product_discounted_price_detls").innerHTML = `₹ ${product_discount_price}`;
 }
 
 function generateStarRating(rating)
@@ -208,6 +209,74 @@ function generateStarRating(rating)
     }
 
     return starsHTML;
+}
+
+function getProductInputElements() 
+{
+    return {
+        message: document.getElementById("msg1"),
+        Id: document.getElementById("productId1"),
+        name: document.getElementById("update_product_name"),
+        imagePath: document.getElementById("old_image"),
+        image: document.getElementById("update_product_img"),
+        description: document.getElementById("update_product_description"),
+        price: document.getElementById("update_product_price"),
+        discount: document.getElementById("update_product_discount_price"),
+        rating: document.getElementById("update_product_rating"),
+        quantity: document.getElementById("update_product_quantity"),
+        category: document.getElementById("update_product_category")
+    };
+}
+
+function updateProduct(productArr1)
+{
+    const inputs = getProductInputElements();
+    
+    document.getElementById("overlay").style.display = "block";
+    document.getElementById("product_details_wrapper").style.display = "none";
+    document.getElementById("add_and_update_product").style.display = "block";
+    
+    let product_id = productArr1[0];
+    let product_name = productArr1[1];
+    let product_image = productArr1[2];
+    let product_description = productArr1[3];
+    let product_price = productArr1[4];
+    let product_discount_price = productArr1[5];
+    let product_rating = productArr1[6];
+    let product_quantity = productArr1[7];
+    let product_category = productArr1[8];
+    
+    inputs.message.value = "update";
+    inputs.Id.value = product_id;
+    inputs.name.value = product_name;
+    inputs.name.focus();
+    inputs.imagePath.value = product_image;
+    inputs.description.value = product_description;
+    inputs.price.value = product_price;
+    inputs.discount.value = product_discount_price;
+    inputs.rating.value = product_rating;
+    inputs.quantity.value = product_quantity;
+    inputs.category.value = product_category;
+}
+
+function addProduct()
+{
+    const inputs = getProductInputElements();
+    
+    document.getElementById("overlay").style.display = "block";
+    document.getElementById("product_details_wrapper").style.display = "none";
+    document.getElementById("add_and_update_product").style.display = "block";
+    
+    inputs.Id.value = 0;
+    inputs.name.value = "";
+    inputs.name.focus();
+    inputs.description.value = "";
+    inputs.price.value = null;
+    inputs.discount.value = null;
+    inputs.rating.value = null;
+    inputs.quantity.value = null;
+    inputs.category.value = "";
+    inputs.message.value = "add";
 }
 /* ====================================== /PRODUCT ====================================== */
 
@@ -263,7 +332,7 @@ function updateTotalAmount()
         totalAmount += parseFloat(amountText) || 0;
     }
 
-    document.getElementById("total_amount").innerHTML = `₹${totalAmount.toFixed(2)}`;
+    document.getElementById("total_amount").innerHTML = `₹${totalAmount.toFixed(2)}/-`;
 }
 /* ====================================== PAYMENT ====================================== */
 

@@ -46,22 +46,29 @@
                         for (ProductDataBean product : productGroup) 
                         {
                             count1 += 1;
-                            String productArr = "["+ product.getProduct_id() + ", "+ "\"" + product.getName() + "\", "+ "\"" + product.getProduct_image() + "\", "+ "\"" + product.getDescription() + "\", "+ product.getPrice() + ", "+ product.getDiscount_price() + ", "+ product.getProduct_rating() + ", "+ product.getQuantity() + ", "+ "\"" + product.getCategory() + "\"]";
+                            int order_id = product.getOrder_id();
+                            int product_id = product.getProduct_id();
+                            String product_name = product.getName();
+                            String product_image = product.getProduct_image();
+                            String product_description = product.getDescription();
+                            double product_price = product.getPrice();
+                            double product_discount_price = product.getDiscount_price();
+                            int product_quantity = product.getQuantity();
                             %>
-                            <div class="cart_div" id="<%= product.getProduct_id() %>">
-                                <div class="cart_product_img"> <img src="../Product_images/<%= product.getProduct_image() %>" alt="<%= product.getName() %>" title="PRODUCT PICTURE" /> </div>
+                            <div class="cart_div" id="<%= product_id %>">
+                                <div class="cart_product_img"> <img src="../Product_images/<%= product_image %>" alt="<%= product_name %>" title="PRODUCT PICTURE" /> </div>
                                 <div class="cart_product_info">
-                                    <div class="cart_product_name" title="PRODUCT NAME"><%= product.getName() %></div>
-                                    <div class="cart_product_dis" title="PRODUCT DISCRIPTION"><%= product.getDescription() %></div>
+                                    <div class="cart_product_name" title="PRODUCT NAME"><%= product_name %></div>
+                                    <div class="cart_product_dis" title="PRODUCT DISCRIPTION"><%= product_description %></div>
                                     <div class="product_price product_price_custom" title="PRODUCT PRICE">
-                                        <span><del>₹ <%= product.getPrice() %> /-</del></span> &nbsp;
-                                        <span>₹ <%= product.getDiscount_price() %> /-</span>
+                                        <span><del>₹ <%= product_price %> /-</del></span> &nbsp;
+                                        <span>₹ <%= product_discount_price %> /-</span>
                                     </div>
-                                    <div class="product_available">Only <%= product.getQuantity() %> product are available.</div>
+                                    <div class="product_available">Only <%= product_quantity %> product are available.</div>
                                     <div class="cart_product_qty">
-                                        Quantity : <input class="product_qty_box" id="product_qty_box_<%= product.getProduct_id() %>" type="number" value="1" name="product_qty" title="ENTER THE REQUIREMENT" />
-                                        <input class="place_order_btn" type="button" value="PLACE ORDER" title="PLACE ORDER" onclick="payment(<%= product.getOrder_id() %>,<%= product.getProduct_id() %>, '<%= product.getName() %>', <%= product.getDiscount_price() %>)" />
-                                        <div class="remove_product" title="REMOVE PRODUCT FROM CART"><a href="../RemoveCartProduct?order=<%= product.getOrder_id() %>">REMOVE</a></div>
+                                        Quantity : <input class="product_qty_box" id="product_qty_box_<%= product_id %>" type="number" value="1" name="product_qty" min="1" max="<%= product_quantity %>" title="ENTER THE REQUIREMENT" />
+                                        <input class="place_order_btn" type="button" value="PLACE ORDER" title="PLACE ORDER" onclick="payment(<%= order_id %>,<%= product_id %>, '<%= product_name %>', <%= product_discount_price %>)" />
+                                        <div class="remove_product" title="REMOVE PRODUCT FROM CART"><a href="../RemoveCartProduct?order=<%= order_id %>">REMOVE</a></div>
                                     </div>
                                 </div>
                             </div>
@@ -74,27 +81,27 @@
             
         <section id="checkout_section">
             <div id="checkout_wrap">
-                <div id="payment_heading">PAYMENT</div>
+                <div id="payment_heading" title="YOUR BILL">PAYMENT</div>
                 <div id="payment_table">
                     <form action="../PlaceOrder" method="POST" >
-                    <table cellspacing="0px" frame="box" rules="rows">
-                        <tr height="40px">
-                            <th>Order ID</th>
-                            <th>Product name</th>
-                            <th>Quantity</th>
-                            <th>Product price</th>
-                            <th>Total price</th>
-                            <th></th>
-                        </tr>
-                        <tbody id="product_list"></tbody>
-                        <tr height="30px">
-                            <th colspan="4">Total : </th>
-                            <th colspan="2" id="total_amount"></th>
-                        </tr>
-                        <tr height="40px">
-                            <button id="confirm_payment" type="submit">CONFIRM</button>
-                        </tr>
-                    </table>
+                        <table cellspacing="0px" frame="below" rules="rows">
+                            <tr height="40px">
+                                <th title="ORDER ID">Order ID</th>
+                                <th title="PRODUCT NAME">Product name</th>
+                                <th title="QUANTITY">Quantity</th>
+                                <th title="PRICE">Product price</th>
+                                <th title="TOTAL PRICE">Total price</th>
+                                <th></th>
+                            </tr>
+                            <tbody id="product_list"></tbody>
+                            <tr height="30px">
+                                <th colspan="4">Total : </th>
+                                <th colspan="2" id="total_amount" title="TOTAL AMOUNT"></th>
+                            </tr>
+                        </table>
+                        <div id="confirm_payment_div">
+                            <input id="confirm_payment" type="submit" value="CONFIRM PAYMENT" title="MAKE PAYMENT" />
+                        </div>
                     </form>
                 </div>
             </div>

@@ -10,15 +10,41 @@
     width: 1100px;
     padding: 15px 10px;
     margin: 0 auto;
+    display: flex;
 }
 
-#product_heading_section #product_heading div:nth-child(1) {
+#product_heading_section #product_heading #product_heading_wrap {
+    width: 920px;
+}
+
+#product_heading_section #product_heading #product_heading_wrap div:nth-child(1) {
     font-family: MyBold;
     font-size: 35px;
 }
 
-#product_heading_section #product_heading div:nth-child(2) {
+#product_heading_section #product_heading #product_heading_wrap div:nth-child(2) {
     color: grey;
+}
+
+#product_heading_section #product_heading #add_product_button_div {
+    width: 180px;
+    padding-top: 20px;
+}
+
+#product_heading_section #product_heading #add_product_button_div #add_btn1 {
+    width: 180px;
+    height: 40px;
+    text-align: center;
+    border: 0px;
+    font-size: 14px;
+    border-radius: var(--half-border-radius);
+    background-color: var(--purple-color);
+    color: #fff;
+    transition: all 0.3s;
+}
+
+#product_heading_section #product_heading #add_product_button_div #add_btn1:hover {
+    background-color: var(--dark-purple-color);
 }
 /* ************************************** /PRODUCT HEADING ************************************** */
 
@@ -104,22 +130,31 @@
     height: 30px;
     width: 235px;
     padding: 5px;
+    text-align: center;
+}
+
+.product_collection .product_item .product_image_div .product_image_btns .add_to_cart_div .update_product {
+    height: 40px;
+    width: 245px;
+    outline: none;
+    border: 0px;
+}
+
+.product_collection .product_item .product_image_div .product_image_btns .add_to_cart_div .add_to_cart,.update_product {
+    display: none;
     margin-left: 5px;
     background-color: var(--purple-color);
     font-weight: bold;
     color: var(--bg-color);
     border-radius: 0px 0px 4px 4px;
-    display: none;
     transition: all 0.3s;
-    text-align: center;
-    cursor: pointer;
 }
 
-.product_collection .product_item:hover .product_image_div .product_image_btns .add_to_cart_div .add_to_cart {
+.product_collection .product_item:hover .product_image_div .product_image_btns .add_to_cart_div .add_to_cart,.update_product {
     display: block;
 }
 
-.product_collection .product_item .product_image_div .product_image_btns .add_to_cart_div .add_to_cart:hover {
+.product_collection .product_item .product_image_div .product_image_btns .add_to_cart_div .add_to_cart:hover,.update_product:hover {
     background-color: var(--dark-purple-color);
 }
 
@@ -219,7 +254,8 @@
     background-color: var(--purple-color);
 }
 
-#product_details #product_details_wrapper {
+#product_details #product_details_wrapper,#add_and_update_product {
+    display: none;
     width: 800px;
     height: 400px;
     padding: 10px 20px;
@@ -229,7 +265,7 @@
     position: relative;
 }
 
-#product_details #product_details_wrapper #product_header {
+#product_details .product_header {
     text-align: center;
     font-size: 35px;
     background-color: var(--font-color);
@@ -317,9 +353,8 @@
 }
 
 #product_details #product_details_wrapper #product_details_div #add_cart_btn {
-    width: 200px;
+    width: 160px;
     height: 40px;
-    padding-top: 5px;
     background-color: var(--purple-color);
     border-radius: var(--half-border-radius);
     text-align: center;
@@ -329,11 +364,50 @@
 
 #product_details #product_details_wrapper #product_details_div #add_cart_btn #add_cart_btn_anchor {
     color: #fff;
+    font-size: 14px;
     font-family: MyRegular;
     font-style: normal;
 }
 
 #product_details #product_details_wrapper #product_details_div #add_cart_btn:hover {
     background-color: var(--dark-purple-color);
+}
+
+#update_product_info {
+    width: 500px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#update_product_info table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+}
+
+#update_product_info table tr {
+    height: 32px;
+}
+
+#update_product_info td:first-child {
+    width: 300px;
+}
+
+#update_product_info td:nth-child(2) {
+    width: 200px;
+    text-align: right;
+}
+
+#update_product_info input {
+    outline: none;
+    width: 170px;
+    padding: 0px 4px;
+}
+
+#update_product_info textArea {
+    resize: none;
+    width: 172px;
+    outline: none;
+    padding: 0px 4px;
 }
 /* ====================================== /PRODUCT VIEWER ====================================== */

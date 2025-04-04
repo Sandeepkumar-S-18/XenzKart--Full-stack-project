@@ -215,7 +215,9 @@
     color: red;
 }
 
-#confirm_payment {
-    height: 30px;
+#confirm_payment_div {
+    width: 580px;
+    margin: 20px auto 10px auto;
+    text-align: center;
 }
 /* ====================================== /CHECKOUT ====================================== */
