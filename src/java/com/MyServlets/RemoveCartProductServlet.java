@@ -14,9 +14,28 @@ public class RemoveCartProductServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            int order = Integer.parseInt(request.getParameter("orderId"));
-            int product_id = Integer.parseInt(request.getParameter("productId"));
-            int quantity = Integer.parseInt(request.getParameter("quantity"));
+            
+            String orderStr = request.getParameter("orderId");
+            String productStr = request.getParameter("productId");
+            String qtyStr = request.getParameter("quantity");
+
+            int order = 0, product_id = 0, quantity = 0;
+
+            if (orderStr != null && !orderStr.equals("")) 
+            {
+                order = Integer.parseInt(orderStr);
+            }
+
+            if (productStr != null && !productStr.equals("")) 
+            {
+                product_id = Integer.parseInt(productStr);
+            }
+
+            if (qtyStr != null && !qtyStr.equals("")) 
+            {
+                quantity = Integer.parseInt(qtyStr);
+            }
+
             String action = request.getParameter("action");
             
             AddToCart removeCartProduct = new AddToCart();
