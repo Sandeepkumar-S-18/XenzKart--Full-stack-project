@@ -13,7 +13,7 @@
     display: flex;
 }
 
-#header_section #header_div #heading1,#heading3 {
+#header_section #header_div #heading1,#heading3,#heading4 {
     width: 550px;
     font-size: 30px;
     font-family: MyBold;
@@ -81,7 +81,12 @@
     height: 200px;
 }
 
-#cart_section #cart_wrapper .cart_div .cart_product_info .cart_product_name {
+#cart_section #cart_wrapper .cart_div .confirm_product_info {
+    margin: 0px 20px;
+    width: 460px;
+}
+
+#cart_section #cart_wrapper .cart_div .cart_product_info,.confirm_product_info .cart_product_name {
     margin-top: 5px;
     font-family: MyBold;
     font-size: 20px;
@@ -93,7 +98,7 @@
     font-size: 12px;
 }
 
-#cart_section #cart_wrapper .cart_div .cart_product_info .product_price {
+#cart_section #cart_wrapper .cart_div .cart_product_info,.confirm_product_info .product_price {
     width: 245px;
     margin-top: 5px;
     font-size: 13px;
@@ -221,3 +226,31 @@
     text-align: center;
 }
 /* ====================================== /CHECKOUT ====================================== */
+
+/* ====================================== CONFIRM ORDER ====================================== */
+.user_address {
+    margin-top: 5px;
+}
+
+#cart_section #cart_wrapper .cart_div .confirm_product_info .remove_product {
+    display: inline-block;
+    background-color: var(--purple-color);
+    width: 150px;
+    height: 27px;
+    margin-top: 5px;
+    padding-top: 3px;
+    border: 0px;
+    text-align: center;
+    border-radius: var(--half-border-radius);
+    transition: all 0.3s;
+}
+
+#cart_section #cart_wrapper .cart_div .confirm_product_info .remove_product:hover {
+    background-color: var(--dark-purple-color);
+}
+
+#cart_section #cart_wrapper .cart_div .confirm_product_info .remove_product a {
+    color: #fff;
+    font-size: 14px;
+}
+/* ====================================== /CONFIRM ORDER ====================================== */

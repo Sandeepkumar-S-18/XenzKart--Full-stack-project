@@ -7,6 +7,8 @@ public class ProductDataBean
     private int product_id, quantity, order_id, number_of_product_order;
     private String name, product_image, description, category, created_at, updated_at, status;
     private double price, discount_price, product_rating;
+    
+    private String user_name, address, mobile;
 
     private ArrayList<ArrayList<ProductDataBean>> productList;
 
@@ -164,6 +166,36 @@ public class ProductDataBean
         this.product_rating = product_rating;
     }
 
+    public String getUser_name() 
+    {
+        return user_name;
+    }
+
+    public void setUser_name(String user_name) 
+    {
+        this.user_name = user_name;
+    }
+
+    public String getAddress() 
+    {
+        return address;
+    }
+
+    public void setAddress(String address) 
+    {
+        this.address = address;
+    }
+
+    public String getMobile() 
+    {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) 
+    {
+        this.mobile = mobile;
+    }
+    
     public void addProductToList(ProductDataBean product) 
     {
         if(this.productList.isEmpty()) 

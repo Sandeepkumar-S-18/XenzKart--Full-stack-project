@@ -66,14 +66,45 @@
                                         <span>₹ <%= product_discount_price %> /-</span>
                                     </div>
                                     <div class="cart_product_qty">
-                                        <div class="product_available"><%= number_of_product_order %> products are order.</div>
                                         <%
-                                            if(!status.equals("order confirmed"))
+                                            if(status.equals("order placed"))
                                             {
                                                 %>
-                                                <div><%= status %></div>
+                                                <div class="product_available">
+                                                    <p>You are order <%= number_of_product_order %> products.</p>
+                                                    <p>Order confirmation Pending.</p>
+                                                </div>
                                                 <div class="remove_product" title="CANCEL ORDER">
                                                     <a href="../RemoveCartProduct?orderId=<%= order_id %>&action=cancelOrder">CANCEL ORDER</a>
+                                                </div>
+                                                <%
+                                            }
+                                            else if(status.equals("order confirmed"))
+                                            {
+                                                %>
+                                                <div class="product_available">
+                                                    <p>You are order <%= number_of_product_order %> products.</p>
+                                                    <p>Your order is deliver in 2 days.</p>
+                                                </div>
+                                                <div class="remove_product" title="CANCEL ORDER">
+                                                    <a href="../RemoveCartProduct?orderId=<%= order_id %>&action=cancelOrder">CANCEL ORDER</a>
+                                                </div>
+                                                <%
+                                            }
+                                            else if(status.equals("delivered"))
+                                            {
+                                                %>
+                                                <div class="product_available">
+                                                    <p>You are order <%= number_of_product_order %> products.</p>
+                                                </div>
+                                                <%
+                                            }
+                                            else if(status.equals("canceled"))
+                                            {
+                                                %>
+                                                <div class="product_available">
+                                                    <p>You are order <%= number_of_product_order %> products.</p>
+                                                    <p>This order is canceled.</p>
                                                 </div>
                                                 <%
                                             }

@@ -137,6 +137,23 @@ header {
 #MyHeader #navbar .actions .btn:hover {
     background-color: var(--dark-purple-color);
 }
+
+#logout {
+    display: inline-block;
+    margin-left: 330px;
+    font-family: MyRegular;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+#logout a {
+    font-family: MyRegular;
+    color: grey;
+}
+
+#logout:hover a {
+    color: red;
+}
 /*====================================== /HEADER ======================================*/
 
 /*====================================== BANNER ======================================*/

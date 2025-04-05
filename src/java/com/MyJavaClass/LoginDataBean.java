@@ -2,16 +2,9 @@ package com.MyJavaClass;
 
 public class LoginDataBean
 {
-    private String userType;
     private int id;
-    private String name;
-    private String profileImage;
-    private String email;
     private long mobile;
-    private String address;
-    private String password;
-    private String registerTime;
-    private String status;
+    private String userType, name, profileImage, email, address, password, status, registerTime;
 
     public String getUserType() 
     {
@@ -111,5 +104,5 @@ public class LoginDataBean
     public void setStatus(String status) 
     {
         this.status = status;
-    }
+    }   
 }

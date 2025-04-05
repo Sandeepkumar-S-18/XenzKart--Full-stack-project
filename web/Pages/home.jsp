@@ -1,3 +1,4 @@
+<%@page import="com.MyDb.AddToCart"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -17,6 +18,7 @@
     <body>
         <%@include file="menu.jsp" %>
         <%@include file="banner.html" %>
+        <% AddToCart.updateDeliveredOrders(); %>
         
         <!-- ====================================== CARDS ====================================== -->
         <section id="free_shoping_section">

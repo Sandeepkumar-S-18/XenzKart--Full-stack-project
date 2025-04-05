@@ -15,6 +15,8 @@ public class RemoveCartProductServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             int order = Integer.parseInt(request.getParameter("orderId"));
+            int product_id = Integer.parseInt(request.getParameter("productId"));
+            int quantity = Integer.parseInt(request.getParameter("quantity"));
             String action = request.getParameter("action");
             
             AddToCart removeCartProduct = new AddToCart();
@@ -39,6 +41,17 @@ public class RemoveCartProductServlet extends HttpServlet {
                 else
                 {
                     response.sendRedirect("Pages/yourOrder.jsp");
+                }
+            }
+            else if(action.equals("confirm"))
+            {
+                if(removeCartProduct.confirmOrderByAdmin(order, product_id, quantity))
+                {
+                    response.sendRedirect("Pages/manageOrders.jsp");
+                }
+                else
+                {
+                    out.println("not done");
                 }
             }
         }

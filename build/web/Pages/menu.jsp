@@ -52,7 +52,7 @@
                             if(userType.equals("admin"))
                             {
                                 %>
-                                <a href="#" class="btn" title="NOTIFICATION">
+                                <a href="manageOrders.jsp" class="btn" title="NOTIFICATION">
                                     <i class="fas fa-lock"></i>Notification
                                 </a>
                                 <%

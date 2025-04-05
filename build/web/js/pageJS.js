@@ -343,6 +343,34 @@ function updateTotalAmount()
 /* ====================================== PAYMENT ====================================== */
 
 /* ====================================== ACTIVE LINK ====================================== */
+function orderAndCartHeading()
+{
+    let element1 = document.getElementsByClassName("cart_div");
+    let count1 = 0;
+    for (let i = 0; i < element1.length; i++) 
+    {
+        count1 += 1;
+    }
+    let heading1 = document.getElementById("heading1");
+    let heading3 = document.getElementById("heading3");
+    let heading4 = document.getElementById("heading4");
+
+    if (heading1) 
+    {
+        heading1.innerHTML = `YOUR CART (${count1})`;
+    }
+
+    if (heading3) 
+    {
+        heading3.innerHTML = `YOUR ORDERS (${count1})`;
+    }
+    
+    if (heading4) 
+    {
+        heading4.innerHTML = `NOTIFICATIONS (${count1})`;
+    }
+}
+
 window.onload = function () 
 {
     var currentLocation = window.location.pathname.split("/").pop();
@@ -366,14 +394,6 @@ window.onload = function ()
     }
     
     showSection(0);
-    
-    let element1 = document.getElementsByClassName("cart_div");
-    let count1 = 0;
-    for (let i = 0; i < element1.length; i++) 
-    {
-        count1 += 1;
-    }
-    document.getElementById("heading1").innerHTML = `YOUR CART (${count1})`;
-    document.getElementById("heading3").innerHTML = `YOUR ORDERS (${count1})`;
+    orderAndCartHeading();
 };
 /* ====================================== /ACTIVE LINK ====================================== */

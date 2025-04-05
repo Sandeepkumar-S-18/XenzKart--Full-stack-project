@@ -6,6 +6,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpSession;
@@ -97,10 +100,54 @@ public class AddToCart
                     product.setProduct_rating(rs2.getDouble("product_rating"));
                     product.setCreated_at(rs2.getString("created_at"));
                     product.setUpdated_at(rs2.getString("updated_at"));
-                    product.setStatus(rs2.getString("status"));
 
                     productDataBean.addProductToList(product);
                 }
+            }
+        } 
+        catch (SQLException ex) 
+        {
+            Logger.getLogger(AddToCart.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return productDataBean;
+    }
+    
+    public ProductDataBean confirmOrder()
+    {
+        ProductDataBean productDataBean = new ProductDataBean();
+        
+        try 
+        {
+            PreparedStatement ps1 = con.prepareStatement("select * from xenzkart_orders where status='order placed'");
+            ResultSet rs1 = ps1.executeQuery();
+            
+            while (rs1.next())
+            {
+                ProductDataBean product = new ProductDataBean();
+                int product_id = rs1.getInt("product_id");
+                int buyer_id = rs1.getInt("buyer_id");
+                
+                PreparedStatement ps2 = con.prepareStatement("select * from xenzkart_product where product_id=?");
+                ps2.setInt(1, product_id);
+                ResultSet rs2 = ps2.executeQuery();
+                
+                PreparedStatement ps3 = con.prepareStatement("select * from xenzkart_user where id=?");
+                ps3.setInt(1, buyer_id);
+                ResultSet rs3 = ps3.executeQuery();
+                
+                while(rs2.next() && rs3.next())
+                {
+                    product.setProduct_id(rs1.getInt("product_id"));
+                    product.setName(rs2.getString("name"));
+                    product.setDiscount_price(rs2.getDouble("discount_price"));
+                    product.setNumber_of_product_order(rs1.getInt("quantity"));
+                    product.setOrder_id(rs1.getInt("order_id"));
+                    product.setUser_name(rs3.getString("name"));
+                    product.setAddress(rs3.getString("address"));
+                    product.setMobile(rs3.getString("mobile"));
+                }
+                
+                productDataBean.addProductToList(product);
             }
         } 
         catch (SQLException ex) 
@@ -122,7 +169,7 @@ public class AddToCart
             }
             else if(message.equals("cancelOrder"))
             {
-                sqlQuery = "delete from xenzkart_orders where order_id=? and status='order placed'";
+                sqlQuery = "update xenzkart_orders set status='canceled' where order_id=? and status='order placed'";
             }
             
             PreparedStatement ps1 = con.prepareStatement(sqlQuery);
@@ -136,6 +183,7 @@ public class AddToCart
         
         if(i > 0)
         {
+            
             return true;
         }
         else
@@ -177,5 +225,67 @@ public class AddToCart
             Logger.getLogger(AddToCart.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
+    }
+    
+    public boolean confirmOrderByAdmin(int orderId, int productId, int quantity) 
+    {
+        int i1 = 0, i3 = 0;
+        
+        try 
+        {
+            Calendar cal = Calendar.getInstance();
+            cal.add(Calendar.DATE, 2);
+            String delivery_date = new SimpleDateFormat("yyyy-MM-dd").format(cal.getTime());
+            
+            PreparedStatement ps1 = con.prepareStatement("update xenzkart_orders set status='order confirmed', delivery_date=? where order_id=? and status='order placed'");
+            ps1.setString(1, delivery_date);
+            ps1.setInt(2, orderId);
+            i1 = ps1.executeUpdate();
+            
+            if(i1 > 0) 
+            {
+                PreparedStatement ps2 = con.prepareStatement("select quantity from xenzkart_product where product_id=?");
+                ps2.setInt(1, productId);
+                ResultSet rs2 = ps2.executeQuery();
+
+                if(rs2.next()) 
+                {
+                    int currentQty = rs2.getInt("quantity");
+                    int updatedQty = currentQty - quantity;
+                    
+                    if(updatedQty < 0) 
+                    {
+                        throw new SQLException("Insufficient product quantity.");
+                    }
+
+                    PreparedStatement ps3 = con.prepareStatement("update xenzkart_product set quantity=? where product_id=?");
+                    ps3.setInt(1, updatedQty);
+                    ps3.setInt(2, productId);
+                    i3 = ps3.executeUpdate();
+                }
+            }
+        } 
+        catch (SQLException ex) 
+        {
+            Logger.getLogger(AddToCart.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return i3 > 0;
+    }
+    
+    public static void updateDeliveredOrders() 
+    {
+        Connection con = DbConnector.connect();
+        try
+        {
+            PreparedStatement ps1 = con.prepareStatement("update xenzkart_orders set status='delivered' where delivery_date=? and status='order confirmed'");
+            String today = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
+            ps1.setString(1, today);
+            ps1.executeUpdate();
+        } 
+        catch (SQLException ex) 
+        {
+            Logger.getLogger(AddToCart.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

@@ -8,12 +8,14 @@
         <!-- FAVICON -->
         <link rel="shortcut icon" href="../Images/favicon.png" type="image/x-icon">
         
+        <!--FONTAWESOME-->
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
         <!-- CSS FILE -->
         <link rel="stylesheet" href="../css/menu.css">
         
         <!--JS FILE-->
         <script src="../js/pageJS.js"></script>
-        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     </head>
     <body>
         <%! int id; String userType1, name, profileImag, email, address, password; long mobile; %>
@@ -37,6 +39,7 @@
                 </div>
                 <div id="profile-details">
                     <button class="edit-btn" onclick="enable()"><i class="fas fa-pencil-alt"></i> EDIT PROFILE</button>
+                    <div id="logout"><a href="../Logout">logout <i class="fas fa-power-off"></i></a></div>
                     <form action="../UpdateRecord" method="POST" enctype="multipart/form-data">
                         <input class="profile-details-text-box" id="profile_photo" type="file" accept="image/*" name="user_profile_photo" hidden />
                         <input class="profile-details-text-box" id="user_name" type="text" name="user_name" value="<%= name %>" placeholder="Name" disabled />
