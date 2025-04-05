@@ -29,17 +29,17 @@
 
 *This page allows administrators to manage product listings, including adding and editing products in the catalog. When logged in as a user, this page displays detailed information about specific products, including images, descriptions, and pricing. Users can also add products to their cart from this page.*
 
-### **Add to Cart**
+### 🛒 **Add to Cart**
 <img src="Output_images/Add_to_cart.png" alt="Add to Cart" width="600"/> 
 
 *This feature enables users to add desired products to their shopping cart with a single click. Users can continue browsing or go straight to checkout from here.*
 
-### **Modify the product details**
+### ✏️ **Modify the product details**
 <img src="Output_images/Modify_product_info.png" alt="Add to Cart" width="600"/>
 
 *Admins can update product information such as name, price, description, and category. This ensures the product catalog stays accurate and up to date.*
 
-### **Add new product**
+### ➕ **Add new product**
 <img src="Output_images/Add_newProduct.png" alt="Add to Cart" width="600"/>
 
 *This functionality allows administrators to add new products to the catalog by uploading images, setting prices, entering descriptions, and selecting categories.*
