@@ -58,7 +58,7 @@
             
             int count = 0;
             int count1 = -1;
-            int maxPerPage = 40;
+            int maxPerPage = 24;
             int divIndex = 0;
             
             for (ArrayList<ProductDataBean> productGroup : productList) 
