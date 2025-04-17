@@ -14,13 +14,25 @@ public class RetrievingProduct
 {
     Connection con = DbConnector.connect();
     
-    public ProductDataBean retrievingProductList() 
+    public ProductDataBean retrievingProductList(String name) 
     {
         ProductDataBean productDataBean = new ProductDataBean();
 
         try 
         {
-            PreparedStatement ps1 = con.prepareStatement("select * from xenzkart_product");
+            PreparedStatement ps1 = null;
+            
+            if(!name.equalsIgnoreCase(""))
+            {
+                ps1 = con.prepareStatement("select * from xenzkart_product where name like ? or category like ? ");
+                ps1.setString(1, "%"+name+"%");
+                ps1.setString(2, "%"+name+"%");
+            }
+            else
+            {
+                ps1 = con.prepareStatement("select * from xenzkart_product");
+            }
+            
             ResultSet rs1 = ps1.executeQuery();
             
             while (rs1.next()) 

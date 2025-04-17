@@ -49,10 +49,24 @@
             int product_id, product_quantity;
             String product_name, product_image, product_description, product_category, productArr;
             double product_price, product_discount_price, product_rating;
+            ProductDataBean productDataBean;
         %>
         <%
+            String name = request.getParameter("name");
+            if(name == null)
+            {
+                name = "";
+            }
+            
             RetrievingProduct retrievingProduct = new RetrievingProduct();
-            ProductDataBean productDataBean = retrievingProduct.retrievingProductList();
+            if(!name.equalsIgnoreCase(""))
+            {
+                productDataBean = retrievingProduct.retrievingProductList(name);
+            }
+            else
+            {
+                productDataBean = retrievingProduct.retrievingProductList("");
+            }
 
             ArrayList<ArrayList<ProductDataBean>> productList = productDataBean.getProductList();
             

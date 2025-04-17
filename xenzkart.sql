@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 05, 2025 at 08:14 AM
+-- Generation Time: Apr 17, 2025 at 07:43 AM
 -- Server version: 5.1.36
 -- PHP Version: 5.3.0
 
@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `xenzkart_orders` (
   PRIMARY KEY (`order_id`),
   KEY `buyer_id` (`buyer_id`),
   KEY `product_id` (`product_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;
 
 --
 -- Dumping data for table `xenzkart_orders`
@@ -77,14 +77,19 @@ INSERT INTO `xenzkart_orders` (`order_id`, `buyer_id`, `product_id`, `quantity`,
 (3, 1001, 113, 1, '72.80', '72.80', 'order confirmed', '2025-04-04', '2025-04-06'),
 (4, 1001, 119, 7, '85.00', '595.00', 'canceled', '2025-04-04', '0000-00-00'),
 (5, 1001, 102, 1, '82.99', '82.99', 'delivered', '2025-04-01', '2025-04-05'),
-(8, 1001, 111, 3, '280.99', '842.97', 'order confirmed', '2025-04-04', '2025-04-06'),
+(8, 1001, 111, 3, '280.99', '842.97', 'delivered', '2025-04-04', '2025-04-06'),
 (9, 1001, 138, 1, '720.00', '720.00', 'delivered', '2025-04-04', '2025-04-06'),
-(10, 1002, 181, 2, '8999.00', '17998.00', 'order confirmed', '2025-04-04', '2025-04-06'),
-(11, 1002, 112, 10, '142.99', '1429.90', 'order confirmed', '2025-04-04', '2025-04-07'),
-(12, 1002, 114, 2, '92.80', '185.60', 'order confirmed', '2025-04-05', '2025-04-07'),
+(10, 1002, 181, 2, '8999.00', '17998.00', 'delivered', '2025-04-04', '2025-04-06'),
+(11, 1002, 112, 10, '142.99', '1429.90', 'delivered', '2025-04-04', '2025-04-07'),
+(12, 1002, 114, 2, '92.80', '185.60', 'delivered', '2025-04-05', '2025-04-07'),
 (13, 1002, 126, 9, '26.00', '234.00', 'order placed', '2025-04-05', '0000-00-00'),
 (14, 1001, 170, 1, '20.99', '20.99', 'cart', '2025-04-05', '0000-00-00'),
-(15, 1001, 166, 1, '50.00', '50.00', 'cart', '2025-04-05', '0000-00-00');
+(15, 1001, 166, 1, '50.00', '50.00', 'delivered', '2025-04-05', '2025-04-07'),
+(16, 1001, 103, 3, '55.99', '167.97', 'delivered', '2025-04-05', '2025-04-10'),
+(17, 1004, 102, 1, '82.99', '82.99', 'canceled', '2025-04-05', '0000-00-00'),
+(18, 1004, 111, 1, '280.99', '280.99', 'cart', '2025-04-05', '0000-00-00'),
+(19, 1001, 101, 3, '21.99', '65.97', 'delivered', '2025-04-08', '2025-04-10'),
+(20, 1001, 110, 2, '50.00', '100.00', 'order placed', '2025-04-17', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -113,12 +118,12 @@ CREATE TABLE IF NOT EXISTS `xenzkart_product` (
 --
 
 INSERT INTO `xenzkart_product` (`product_id`, `name`, `product_image`, `description`, `price`, `discount_price`, `product_rating`, `quantity`, `category`, `created_at`, `updated_at`, `status`) VALUES
-(101, 'Wireless Mouse', 'Wireless Mouse.jpg', 'Ergonomic wireless mouse with a long battery life.', '25.99', '21.99', '4.3', 150, 'Electronics', '2023-01-15', '2023-01-15', 'active'),
+(101, 'Wireless Mouse', 'Wireless Mouse.jpg', 'Ergonomic wireless mouse with a long battery life.', '25.99', '21.99', '4.3', 147, 'Electronics', '2023-01-15', '2023-01-15', 'active'),
 (102, 'Bluetooth Headphones', 'Bluetooth Headphones.jpg', 'Noise-cancelling over-ear headphones.', '89.99', '82.99', '4.1', 75, 'Electronics', '2023-02-20', '2023-02-20', 'active'),
-(103, 'Gaming Keyboard', 'Gaming Keyboard.jpg', 'RGB mechanical keyboard with customizable keys.', '59.99', '55.99', '4.1', 120, 'Electronics', '2023-03-05', '2025-04-04', 'active'),
+(103, 'Gaming Keyboard', 'Gaming Keyboard.jpg', 'RGB mechanical keyboard with customizable keys.', '59.99', '55.99', '4.1', 117, 'Electronics', '2023-03-05', '2025-04-04', 'active'),
 (104, 'USB-C Hub', 'USB-C Hub.jpg', 'Multi-port USB-C hub for laptops.', '39.99', '36.99', '3.7', 200, 'Accessories', '2023-03-22', '2023-03-22', 'active'),
 (105, 'Smartphone Stand', 'Smartphone Stand.jpg', 'Adjustable stand for smartphones and tablets.', '15.49', '10.99', '4.5', 180, 'Accessories', '2023-04-10', '2023-04-10', 'active'),
-(106, 'Laptop Sleeve', 'Laptop Sleeve.jpg', 'Durable sleeve for 15-inch laptops.', '19.99', '17.99', '4.0', 90, 'Accessories', '2023-04-15', '2023-04-15', 'active'),
+(106, 'Laptop Sleeve', 'Laptop Sleeve.jpg', 'Durable sleeve for 15-inch laptops.', '19.99', '17.99', '4.1', 90, 'Accessories', '2023-04-15', '2025-04-05', 'active'),
 (107, 'Portable Charger', 'Portable Charger.jpg', 'Power bank with fast charging capabilities.', '35.00', '32.00', '3.0', 110, 'Electronics', '2023-05-01', '2023-05-01', 'active'),
 (108, 'LED Desk Lamp', 'LED Desk Lamp.jpg', 'Adjustable LED lamp with multiple brightness settings.', '45.99', '40.99', '3.7', 80, 'Home & Office', '2023-05-15', '2023-05-15', 'active'),
 (109, 'Wireless Charger', 'Wireless Charger.jpg', 'Qi wireless charger compatible with most smartphones.', '29.99', '26.99', '4.0', 140, 'Electronics', '2023-06-01', '2023-06-01', 'active'),
@@ -178,7 +183,7 @@ INSERT INTO `xenzkart_product` (`product_id`, `name`, `product_image`, `descript
 (163, 'Sous Vide Cooker', 'Sous Vide Cooker.jpg', 'Immersion circulator for sous vide cooking.', '129.99', '120.77', '2.0', 30, 'Kitchen', '2024-05-20', '2024-05-20', 'active'),
 (164, 'Non-Stick Cookware Set', 'Non-Stick Cookware Set.jpg', 'Durable non-stick cookware set for everyday use.', '99.99', '85.00', '4.5', 50, 'Kitchen', '2024-05-25', '2024-05-25', 'active'),
 (165, 'Food Processor', 'Food Processor.jpg', 'Versatile food processor for meal prep.', '179.99', '160.00', '2.7', 35, 'Kitchen', '2024-05-30', '2024-05-30', 'active'),
-(166, 'Ice Cream Maker', 'Ice Cream Maker.jpg', 'Homemade ice cream maker with easy operation.', '59.99', '50.00', '2.5', 25, 'Kitchen', '2024-06-01', '2024-06-01', 'active'),
+(166, 'Ice Cream Maker', 'Ice Cream Maker.jpg', 'Homemade ice cream maker with easy operation.', '59.99', '50.00', '2.5', 24, 'Kitchen', '2024-06-01', '2024-06-01', 'active'),
 (167, 'Hand Mixer', 'Hand Mixer.jpg', 'Powerful hand mixer with multiple speed settings.', '39.99', '30.99', '3.8', 70, 'Kitchen', '2024-06-05', '2024-06-05', 'active'),
 (168, 'Blender Bottle', 'Blender Bottle.jpg', 'Shaker bottle with a whisk ball for protein shakes.', '14.99', '10.50', '3.5', 150, 'Fitness', '2024-06-10', '2024-06-10', 'active'),
 (169, 'Yoga Block', 'Yoga Block.jpg', 'Supportive foam block for yoga practice.', '19.99', '13.01', '3.0', 120, 'Fitness', '2024-06-15', '2024-06-15', 'active'),
@@ -215,16 +220,17 @@ CREATE TABLE IF NOT EXISTS `xenzkart_user` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`),
   UNIQUE KEY `mobile` (`mobile`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1004 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1005 ;
 
 --
 -- Dumping data for table `xenzkart_user`
 --
 
 INSERT INTO `xenzkart_user` (`id`, `name`, `profile_image`, `email`, `mobile`, `address`, `password`, `register_time`, `profile_updated_time`, `status`) VALUES
-(1001, 'Sandeepkumar S', 'Profile pic_20250324_051535.jpg', 'sandeep@gmail.com', 8123571317, '#909, Cypress St, Bengaluru, KA 560002', '00dcf16d903e5890aaba465b0b1ba51f', '2025-03-16 13:32:30', '2025-04-02 15:20:01', 'active'),
+(1001, 'Sandeepkumar S', 'Profile pic_20250324_051535.jpg', 'sandeep@gmail.com', 918123571317, '#909, Cypress St, Bengaluru, KA 560002', '00dcf16d903e5890aaba465b0b1ba51f', '2025-03-16 13:32:30', '2025-04-05 20:33:37', 'active'),
 (1002, 'John', 'pic4_20250322_075536.jpg', 'john@gmail.com', 7985675464, '#372 Luz Ranch, Apt. 439, 98461, Boyleland, Nevada, United States.', '527bd5b5d689e2c32ae974c6229ff785', '2025-03-22 07:55:36', '0000-00-00 00:00:00', 'active'),
-(1003, 'Jose', 'product_25_20250323_072503.jpg', 'jose@gmail.com', 9879875622, '#199 N.g.acharya Marg, Subhash Nagar,opp Bldg No 56, Chembur, Mumbai, Maharashtra, 400071', '662eaa47199461d01a623884080934ab', '2025-03-23 19:25:03', '0000-00-00 00:00:00', 'active');
+(1003, 'Jose', 'product_25_20250323_072503.jpg', 'jose@gmail.com', 9879875622, '#199 N.g.acharya Marg, Subhash Nagar,opp Bldg No 56, Chembur, Mumbai, Maharashtra, 400071', '662eaa47199461d01a623884080934ab', '2025-03-23 19:25:03', '0000-00-00 00:00:00', 'active'),
+(1004, 'sita', 'product_23_20250405_080814.jpg', 'sita@gmail.com', 9875743542, '#2314, Lakshmi Naraian Street, Behind Imperial Cinema, Pahar Ganj', '803205ab3f1b9b6fa6990393f5ac6b58', '2025-04-05 20:08:16', '0000-00-00 00:00:00', 'active');
 
 --
 -- Constraints for dumped tables

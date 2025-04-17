@@ -30,7 +30,7 @@ public class CartServlet extends HttpServlet {
             }
             
             RetrievingProduct retrievingProduct = new RetrievingProduct();
-            ProductDataBean productDataBean = retrievingProduct.retrievingProductList();
+            ProductDataBean productDataBean = retrievingProduct.retrievingProductList("");
 
             ArrayList<ArrayList<ProductDataBean>> productList = productDataBean.getProductList();
             

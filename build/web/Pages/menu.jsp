@@ -28,7 +28,7 @@
                     <div id="menu">
                         <a href="home.jsp" class="active" title="HOME">HOME</a>
                         <a href="about.jsp" title="ABOUT">ABOUT</a>
-                        <a href="product.jsp" title="PRODUCTS">PRODUCTS</a>
+                        <a href="product.jsp?name" title="PRODUCTS">PRODUCTS</a>
                         <%
                             if(userType.equals("admin"))
                             {
@@ -43,8 +43,10 @@
                                 <%
                             }
                         %>
-                        <div> <input id="search_bar" type="search" value="" placeholder="Search"> </div>
-                        <button class="fas fa-search" id="search_btn" onclick="searchBar()" title="SEARCH"></button>
+                        <form onsubmit="return searchBar()" method="GET">
+                            <div> <input id="search_bar" type="search" value="" placeholder="Search" onkeyup="searchBarSuggestion(this.value)" > 
+                            <button type="submit" class="fas fa-search" id="search_btn" onclick="searchBar()" title="SEARCH"></button> </div>
+                        </form>
                     </div>
                     <div class="actions">
                         <a href="profile.jsp" class="btn" title="PROFILE"><i class="fas fa-user"></i>Profile</a>
@@ -70,5 +72,9 @@
                 </nav>
             </div>
         </header>
+                    
+        <section id="search_suggestion">
+            <div id="dispdiv"></div>
+        </section>
     </body>
 </html>

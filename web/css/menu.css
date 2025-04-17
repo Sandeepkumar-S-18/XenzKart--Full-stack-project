@@ -59,7 +59,6 @@ header {
     border: 1px solid var(--font-color);
     background-color: var(--bg-lightgrey);
     padding: 0px 10px;
-    display: none;
 }
 
 #MyHeader #navbar #menu #search_bar:focus {
@@ -153,6 +152,37 @@ header {
 
 #logout:hover a {
     color: red;
+}
+
+#search_suggestion {
+    width: 100%;
+    position: fixed;
+    top: 75px;
+    background-color: transparent;
+    color: #fff;
+}
+
+#search_suggestion #dispdiv {
+    border-radius: var(--border-radius);
+    margin: 0 auto;
+    width: 300px;
+    background-color: rgba(59, 83, 107, 0.42);
+}
+
+.search_suggestion_div {
+    border: 1px solid #000;
+    padding: 0px 5px;
+    border-radius: var(--half-border-radius);
+}
+
+.searchIcon {
+    font-size: 10px;
+    margin-right: 10px;
+}
+
+.dispDivProductNameSpan {
+    overflow: hidden;
+    font-size: 12px;
 }
 /*====================================== /HEADER ======================================*/
 

@@ -1,17 +1,41 @@
 /* ====================================== SEARCHBAR ====================================== */
-function searchBar()
+function searchBarSuggestion(val)
 {
-    let x = document.getElementById('search_bar');
-
-    if(x.style.display === "none")
+    if(val ==  "")
     {
-        x.style.display = "block";
+        document.getElementById("dispdiv").innerHTML = "";
     }
     else
     {
-        x.style.display = "none";
+        let ajaxobj = new XMLHttpRequest();
+
+        ajaxobj.onreadystatechange = function()
+        {
+            if(ajaxobj.readyState == 4 && ajaxobj.status == 200)
+            {
+                document.getElementById("dispdiv").innerHTML = ajaxobj.responseText;
+            }
+        };
+
+        ajaxobj.open("GET","searchSuggestion.jsp?value="+val, true);
+        ajaxobj.send();
     }
 }
+
+function setValueToSearchBar(value1)
+{
+    document.getElementById("search_bar").value = value1;
+}
+
+function searchBar() 
+{
+    let query = document.getElementById("search_bar").value;
+    if(query.trim() !== "") 
+    {
+      window.location.href = "product.jsp?name=" + query;
+    }
+    return false;
+  }
 /* ====================================== /SEARCHBAR ====================================== */
 
 /* ====================================== SLIDER ====================================== */
