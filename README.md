@@ -7,15 +7,18 @@
 ## 📸 Preview
 
 ### 🏠 Entry Page  
-<img src="Output_images/Entry_page.png" alt="Entry Page" width="600"/>  
+<img src="Output_images/Entry_page.png" alt="Entry Page" width="600"/>
+
 *Landing page with role selection (User/Admin).*
 
 ### 🔑 Login/Signup Page  
 <img src="Output_images/login_signup.jpg" alt="Login/Signup Page" width="600"/>  
+
 *User authentication system (Admins cannot sign up).*
 
 ### 🏢 Admin & 🛍️ User Home Page  
 <img src="Output_images/Admin_User_home_page.jpg" alt="Admin and User Home Page" width="600"/>  
+
 *Dashboard for admins and featured products for users.*
 
 ### ℹ️ About Page  
@@ -23,6 +26,7 @@
 
 ### 🛠️ Admin & 🏷️ User Product Page  
 <img src="Output_images/Admin_User_product_page.jpg" alt="Admin and User Product Page" width="600"/>  
+
 *Admins manage products; users view product details and add to cart.*
 
 ### 🛒 Add to Cart  
